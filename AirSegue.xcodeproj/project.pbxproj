@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		C4E3E08BAD0BBCD84BE05AFA /* AirSegueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E4D1F9286FA3288FD56E /* AirSegueTests.m */; };
+		C4E3E16FD266E846DBEE4F5A /* ASImageChangerViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E0735E52725B3BA9EE3D /* ASImageChangerViewControler.m */; };
 		C4E3E1A67C1FE96FD858DFFF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E5F91046BBAE384A74D5 /* Default-568h@2x.png */; };
 		C4E3E270ABE1767BF2984489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E3E6CFBECFB6EF9B9B5C39 /* Foundation.framework */; };
 		C4E3E307BFFEB48DE999D125 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E3E6CFBECFB6EF9B9B5C39 /* Foundation.framework */; };
 		C4E3E333D33194FEB0F2A281 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E3E1C25D0F2D7C64B95900 /* GLKit.framework */; };
+		C4E3E366C040500B8A3BA6B0 /* sourceImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E6DA53F5C196D3C0B317 /* sourceImage.png */; };
 		C4E3E39286B553706EE2E6FE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E3E94CDA13EE752AFC3580 /* OpenGLES.framework */; };
 		C4E3E3A01088D7A197346D74 /* ASViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E7D08594E263CFD526D1 /* ASViewController_iPhone.xib */; };
 		C4E3E5109B12A20B17A01A79 /* ASViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E20F522D36F580D60F09 /* ASViewController.m */; };
 		C4E3E57712FDEE73A33B531B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E3E6C7CDB6E4890E8846A3 /* CoreGraphics.framework */; };
-		C4E3E5A6DE8302B60DC67253 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E85F46B95D7B4DA74CD2 /* Shader.vsh */; };
-		C4E3E67C879B98411E77E65F /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E93BDA8D81F34239B111 /* Shader.fsh */; };
 		C4E3E7F9BFD72CEF452FD50F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E73D99EE389CC87D55C7 /* InfoPlist.strings */; };
 		C4E3E8319A6EED0C9E58B93C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E3E1D3BB01DA061BE82E16 /* SenTestingKit.framework */; };
 		C4E3E9ECE97126EC4E0104C0 /* ASAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EF55FD97B90C74A74C0E /* ASAppDelegate.m */; };
-		C4E3EA70C9EFC58A81E86659 /* ASViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E3EA580129606FB94BF4FD /* ASViewController_iPad.xib */; };
 		C4E3EAAE96916A9E1DECC4D1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E3E8C32674D56D8242463F /* UIKit.framework */; };
 		C4E3EB086B6DB5C9F5266D8F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E3EB02630C59CDB47BB488 /* Default@2x.png */; };
 		C4E3ED0AB9F1FEB03E850CF3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E324EC8B6F40AE72EF21 /* InfoPlist.strings */; };
 		C4E3EE008E7AF4E42D52884E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E6FBB8BF0E33465C805F /* main.m */; };
+		C4E3EF5C026AF06F325B55A0 /* destinationImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E4752F80D9CF7329EC2A /* destinationImage.png */; };
 		C4E3EF615644DDFD4F87A5D3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E3EC9332C288F133F6DEAC /* Default.png */; };
 		C4E3EF8BFC1305416AEEF1FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E3E8C32674D56D8242463F /* UIKit.framework */; };
 /* End PBXBuildFile section */
@@ -42,22 +42,23 @@
 
 /* Begin PBXFileReference section */
 		C4E3E02A3D0DE9F27E56677A /* AirSegueTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "AirSegueTests-Info.plist"; sourceTree = "<group>"; };
+		C4E3E0735E52725B3BA9EE3D /* ASImageChangerViewControler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASImageChangerViewControler.m; sourceTree = "<group>"; };
 		C4E3E0A2664C091C79672209 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C4E3E0DE6243FF5A2CE1DDFD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ASViewController_iPad.xib; sourceTree = "<group>"; };
 		C4E3E11B48CEFCDD4B5A41EE /* AirSegue-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "AirSegue-Info.plist"; sourceTree = "<group>"; };
 		C4E3E1C25D0F2D7C64B95900 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		C4E3E1D3BB01DA061BE82E16 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C4E3E20F522D36F580D60F09 /* ASViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASViewController.m; sourceTree = "<group>"; };
 		C4E3E25972C74EB39033A9CF /* AirSegue-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirSegue-Prefix.pch"; sourceTree = "<group>"; };
+		C4E3E279B96D100707971A1D /* ASImageChangerViewControler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASImageChangerViewControler.h; sourceTree = "<group>"; };
+		C4E3E4752F80D9CF7329EC2A /* destinationImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = destinationImage.png; sourceTree = "<group>"; };
 		C4E3E4D1F9286FA3288FD56E /* AirSegueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirSegueTests.m; sourceTree = "<group>"; };
 		C4E3E5F91046BBAE384A74D5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C4E3E6C7CDB6E4890E8846A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C4E3E6CFBECFB6EF9B9B5C39 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C4E3E6DA53F5C196D3C0B317 /* sourceImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sourceImage.png; sourceTree = "<group>"; };
 		C4E3E6FBB8BF0E33465C805F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4E3E7A14257AAEF6D002A88 /* ASViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASViewController.h; sourceTree = "<group>"; };
-		C4E3E85F46B95D7B4DA74CD2 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
 		C4E3E8C32674D56D8242463F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C4E3E93BDA8D81F34239B111 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
 		C4E3E94CDA13EE752AFC3580 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		C4E3E9844563B17AF1FD9639 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ASViewController_iPhone.xib; sourceTree = "<group>"; };
 		C4E3EB02630C59CDB47BB488 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -108,10 +109,10 @@
 		C4E3E4780D71F9B5BA09217D = {
 			isa = PBXGroup;
 			children = (
-				C4E3EE87CA62C713E4FC1138 /* Products */,
-				C4E3EBB4B4A01164516FBF5E /* Frameworks */,
 				C4E3EC874C8B76D6146C4D57 /* AirSegue */,
 				C4E3EBE40BF3B711800325E2 /* AirSegueTests */,
+				C4E3EE87CA62C713E4FC1138 /* Products */,
+				C4E3EBB4B4A01164516FBF5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,17 +156,26 @@
 		C4E3EC874C8B76D6146C4D57 /* AirSegue */ = {
 			isa = PBXGroup;
 			children = (
+				C4E3ED66CCEB1A08E0D05B40 /* ImageChanger */,
 				C4E3E8226278E3728E477773 /* Supporting Files */,
 				C4E3EE1DB27ED681EBC18C27 /* ASAppDelegate.h */,
 				C4E3EF55FD97B90C74A74C0E /* ASAppDelegate.m */,
-				C4E3E93BDA8D81F34239B111 /* Shader.fsh */,
-				C4E3E85F46B95D7B4DA74CD2 /* Shader.vsh */,
 				C4E3E7A14257AAEF6D002A88 /* ASViewController.h */,
 				C4E3E20F522D36F580D60F09 /* ASViewController.m */,
 				C4E3E7D08594E263CFD526D1 /* ASViewController_iPhone.xib */,
-				C4E3EA580129606FB94BF4FD /* ASViewController_iPad.xib */,
+				C4E3E6DA53F5C196D3C0B317 /* sourceImage.png */,
+				C4E3E4752F80D9CF7329EC2A /* destinationImage.png */,
 			);
 			path = AirSegue;
+			sourceTree = "<group>";
+		};
+		C4E3ED66CCEB1A08E0D05B40 /* ImageChanger */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3E279B96D100707971A1D /* ASImageChangerViewControler.h */,
+				C4E3E0735E52725B3BA9EE3D /* ASImageChangerViewControler.m */,
+			);
+			path = ImageChanger;
 			sourceTree = "<group>";
 		};
 		C4E3EE87CA62C713E4FC1138 /* Products */ = {
@@ -256,10 +266,9 @@
 				C4E3EF615644DDFD4F87A5D3 /* Default.png in Resources */,
 				C4E3EB086B6DB5C9F5266D8F /* Default@2x.png in Resources */,
 				C4E3E1A67C1FE96FD858DFFF /* Default-568h@2x.png in Resources */,
-				C4E3E67C879B98411E77E65F /* Shader.fsh in Resources */,
-				C4E3E5A6DE8302B60DC67253 /* Shader.vsh in Resources */,
 				C4E3E3A01088D7A197346D74 /* ASViewController_iPhone.xib in Resources */,
-				C4E3EA70C9EFC58A81E86659 /* ASViewController_iPad.xib in Resources */,
+				C4E3E366C040500B8A3BA6B0 /* sourceImage.png in Resources */,
+				C4E3EF5C026AF06F325B55A0 /* destinationImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +298,7 @@
 				C4E3EE008E7AF4E42D52884E /* main.m in Sources */,
 				C4E3E9ECE97126EC4E0104C0 /* ASAppDelegate.m in Sources */,
 				C4E3E5109B12A20B17A01A79 /* ASViewController.m in Sources */,
+				C4E3E16FD266E846DBEE4F5A /* ASImageChangerViewControler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,14 +343,6 @@
 				C4E3E9844563B17AF1FD9639 /* en */,
 			);
 			name = ASViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		C4E3EA580129606FB94BF4FD /* ASViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4E3E0DE6243FF5A2CE1DDFD /* en */,
-			);
-			name = ASViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -479,6 +481,7 @@
 				C4E3EFEA46E59CE8A1648F05 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C4E3EFFDDF68ABCF7893AC8C /* Build configuration list for PBXNativeTarget "AirSegue" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +490,7 @@
 				C4E3E4DB9569446356775758 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

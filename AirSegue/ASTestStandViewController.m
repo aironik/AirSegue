@@ -1,22 +1,22 @@
 //
-//  ASViewController.m
+//  ASTestStandViewController.m
 //  AirSegue
 //
 //  Created by Oleg Lobachev  (aironik@gmail.com) on 07.02.2013.
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import "ASViewController.h"
+#import "ASTestStandViewController.h"
 
 #import "ASImageChangerViewControler.h"
 
 
-@interface ASViewController ()
+@interface ASTestStandViewController ()
 
 @end
 
 
-@implementation ASViewController
+@implementation ASTestStandViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,7 +36,24 @@
 }
 
 - (IBAction)change:(id)sender {
-    [self.imageChanger start];
+    [self.imageChanger change];
 }
+
+- (IBAction)sliderValueDidChange:(UISlider *)sender {
+    [self.imageChanger setProgress:sender.value];
+}
+
+- (IBAction)sliderXAngleDidChange:(UISlider *)sender {
+
+}
+
+- (IBAction)sliderYAngleDidChange:(UISlider *)sender {
+
+}
+
+- (IBAction)sliderZAngleDidChange:(UISlider *)sender {
+
+}
+
 
 @end

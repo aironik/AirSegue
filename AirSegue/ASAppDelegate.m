@@ -8,7 +8,9 @@
 
 #import "ASAppDelegate.h"
 
-#import "ASViewController.h"
+#import "ASEffectListViewController.h"
+#import "ASNavigationController.h"
+
 
 @implementation ASAppDelegate
 
@@ -16,8 +18,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ASViewController alloc] initWithNibName:@"ASViewController_iPhone" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.viewController = [[ASEffectListViewController alloc] initWithNibName:@"ASEffectListViewController" bundle:nil];
+    self.navigationController = [[ASNavigationController alloc] initWithRootViewController:self.viewController];
+    self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }

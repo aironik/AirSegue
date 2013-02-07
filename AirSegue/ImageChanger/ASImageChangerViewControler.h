@@ -11,9 +11,11 @@
 
 @interface ASImageChangerViewControler : GLKViewController
 
+@property (nonatomic, assign) BOOL useOriginalImagesAspect;
 @property (nonatomic, strong) UIImage *sourceImage;
 @property (nonatomic, strong) UIImage *destinationImage;
 
-- (IBAction)start;
+- (void)change;
+- (void)setProgress:(NSTimeInterval)progress;
 
 @end

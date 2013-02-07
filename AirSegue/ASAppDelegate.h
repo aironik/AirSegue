@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class ASViewController;
+@class ASEffectListViewController;
+@class ASNavigationController;
 
 @interface ASAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) ASViewController *viewController;
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) ASEffectListViewController *viewController;
+@property (nonatomic, strong) ASNavigationController *navigationController;
 
 @end

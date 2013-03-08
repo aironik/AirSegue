@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class ASImageChangerViewControler;
+@class ASImageChangerViewController;
 
 
 @interface ASTestStandViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet ASImageChangerViewControler *imageChanger;
+@property (nonatomic, strong) IBOutlet ASImageChangerViewController *imageChanger;
 @property (nonatomic, weak) IBOutlet UISlider *valueSlider;
 @property (nonatomic, weak) IBOutlet UISlider *xAngleSlider;
 @property (nonatomic, weak) IBOutlet UISlider *yAngleSlider;

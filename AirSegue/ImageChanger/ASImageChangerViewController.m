@@ -1,5 +1,5 @@
 //
-//  ASImageChangerViewControler.m
+//  ASImageChangerViewController.m
 //  AirSegue
 //
 //  Created by Oleg Lobachev  (aironik@gmail.com) on 07.02.2013.
@@ -10,12 +10,12 @@
 #error ARC required. Add -fobjc-arc compiler flag for this file.
 #endif
 
-#import "ASImageChangerViewControler.h"
+#import "ASImageChangerViewController.h"
 
 #import "ASChangeEffectRenderer.h"
 
 
-@interface ASImageChangerViewControler ()
+@interface ASImageChangerViewController ()
 
 @property (nonatomic, strong) EAGLContext *eaglContext;
 
@@ -35,7 +35,7 @@
 
 #pragma mark - Implementation
 
-@implementation ASImageChangerViewControler
+@implementation ASImageChangerViewController
 
 - (void)dealloc {
     [self tearDownGL];

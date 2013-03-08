@@ -820,7 +820,7 @@
 				<string key="20.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="21.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="22.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="5.CustomClassName">ASImageChangerViewControler</string>
+				<string key="5.CustomClassName">ASImageChangerViewController</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="73.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<boolean value="NO" key="73.IBViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
@@ -842,11 +842,11 @@
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
-					<string key="className">ASImageChangerViewControler</string>
+					<string key="className">ASImageChangerViewController</string>
 					<string key="superclassName">GLKViewController</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/ASImageChangerViewControler.h</string>
+						<string key="minorKey">./Classes/ASImageChangerViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -882,7 +882,7 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="imageChanger">ASImageChangerViewControler</string>
+						<string key="imageChanger">ASImageChangerViewController</string>
 						<string key="valueSlider">UISlider</string>
 						<string key="xAngleSlider">UISlider</string>
 						<string key="yAngleSlider">UISlider</string>
@@ -891,7 +891,7 @@
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="imageChanger">
 							<string key="name">imageChanger</string>
-							<string key="candidateClassName">ASImageChangerViewControler</string>
+							<string key="candidateClassName">ASImageChangerViewController</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="valueSlider">
 							<string key="name">valueSlider</string>

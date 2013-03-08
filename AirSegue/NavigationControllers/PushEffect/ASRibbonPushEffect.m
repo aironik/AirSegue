@@ -12,12 +12,12 @@
 
 #import "ASRibbonPushEffect.h"
 
-#import "ASImageChangerViewControler.h"
+#import "ASImageChangerViewController.h"
 
 
 @interface ASRibbonPushEffect ()
 
-@property (nonatomic, strong) ASImageChangerViewControler *changer;
+@property (nonatomic, strong) ASImageChangerViewController *changer;
 
 @end
 
@@ -49,9 +49,9 @@
     [self.changer change];
 }
 
-- (ASImageChangerViewControler *)changer {
+- (ASImageChangerViewController *)changer {
     if (!_changer) {
-        _changer = [[ASImageChangerViewControler alloc] init];
+        _changer = [[ASImageChangerViewController alloc] init];
     }
     return _changer;
 }

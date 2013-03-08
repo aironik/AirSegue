@@ -11,7 +11,7 @@
 		00B114AB16DD4428008B382A /* ASEffectListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00B114AA16DD4428008B382A /* ASEffectListViewController.xib */; };
 		C4E3E08BAD0BBCD84BE05AFA /* AirSegueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E4D1F9286FA3288FD56E /* AirSegueTests.m */; };
 		C4E3E0F8C8B3E413D6C438C1 /* ASPushEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E663A97A80313549893D /* ASPushEffect.m */; };
-		C4E3E16FD266E846DBEE4F5A /* ASImageChangerViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E0735E52725B3BA9EE3D /* ASImageChangerViewControler.m */; };
+		C4E3E16FD266E846DBEE4F5A /* ASImageChangerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E0735E52725B3BA9EE3D /* ASImageChangerViewController.m */; };
 		C4E3E1A67C1FE96FD858DFFF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E5F91046BBAE384A74D5 /* Default-568h@2x.png */; };
 		C4E3E270ABE1767BF2984489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E3E6CFBECFB6EF9B9B5C39 /* Foundation.framework */; };
 		C4E3E307BFFEB48DE999D125 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E3E6CFBECFB6EF9B9B5C39 /* Foundation.framework */; };
@@ -53,7 +53,7 @@
 		00B02D3F16E6B6120034C0F6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		00B114AA16DD4428008B382A /* ASEffectListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASEffectListViewController.xib; sourceTree = "<group>"; };
 		C4E3E02A3D0DE9F27E56677A /* AirSegueTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "AirSegueTests-Info.plist"; sourceTree = "<group>"; };
-		C4E3E0735E52725B3BA9EE3D /* ASImageChangerViewControler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASImageChangerViewControler.m; sourceTree = "<group>"; };
+		C4E3E0735E52725B3BA9EE3D /* ASImageChangerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASImageChangerViewController.m; sourceTree = "<group>"; };
 		C4E3E0A2664C091C79672209 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4E3E0FEDFC4A35D6870137F /* ASRibbonPushEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRibbonPushEffect.h; sourceTree = "<group>"; };
 		C4E3E11B48CEFCDD4B5A41EE /* AirSegue-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "AirSegue-Info.plist"; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		C4E3E1D3BB01DA061BE82E16 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C4E3E20F522D36F580D60F09 /* ASTestStandViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTestStandViewController.m; sourceTree = "<group>"; };
 		C4E3E25972C74EB39033A9CF /* AirSegue-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirSegue-Prefix.pch"; sourceTree = "<group>"; };
-		C4E3E279B96D100707971A1D /* ASImageChangerViewControler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASImageChangerViewControler.h; sourceTree = "<group>"; };
+		C4E3E279B96D100707971A1D /* ASImageChangerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASImageChangerViewController.h; sourceTree = "<group>"; };
 		C4E3E3AA9F6799A13DB4F053 /* ASChangeEffectRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASChangeEffectRenderer.mm; sourceTree = "<group>"; };
 		C4E3E4752F80D9CF7329EC2A /* destinationImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = destinationImage.png; sourceTree = "<group>"; };
 		C4E3E4D1F9286FA3288FD56E /* AirSegueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirSegueTests.m; sourceTree = "<group>"; };
@@ -228,8 +228,8 @@
 		C4E3ED66CCEB1A08E0D05B40 /* ImageChanger */ = {
 			isa = PBXGroup;
 			children = (
-				C4E3E279B96D100707971A1D /* ASImageChangerViewControler.h */,
-				C4E3E0735E52725B3BA9EE3D /* ASImageChangerViewControler.m */,
+				C4E3E279B96D100707971A1D /* ASImageChangerViewController.h */,
+				C4E3E0735E52725B3BA9EE3D /* ASImageChangerViewController.m */,
 				C4E3EE2425EE566F32EB7A3E /* ASChangeEffectRenderer.h */,
 				C4E3E3AA9F6799A13DB4F053 /* ASChangeEffectRenderer.mm */,
 				C4E3E432355D535BEEA0FACD /* Effects */,
@@ -369,7 +369,7 @@
 				C4E3EE008E7AF4E42D52884E /* main.m in Sources */,
 				C4E3E9ECE97126EC4E0104C0 /* ASAppDelegate.m in Sources */,
 				C4E3E5109B12A20B17A01A79 /* ASTestStandViewController.m in Sources */,
-				C4E3E16FD266E846DBEE4F5A /* ASImageChangerViewControler.m in Sources */,
+				C4E3E16FD266E846DBEE4F5A /* ASImageChangerViewController.m in Sources */,
 				C4E3E7660896F1C7A78417EA /* ASChangeEffectRenderer.mm in Sources */,
 				C4E3E9BB965BC8A78D372478 /* Surface.mm in Sources */,
 				C4E3E54CDCC327AC131576CB /* Ribbon.mm in Sources */,

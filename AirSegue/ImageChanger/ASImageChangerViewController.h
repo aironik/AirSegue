@@ -1,5 +1,5 @@
 //
-//  ASImageChangerViewControler.h
+//  ASImageChangerViewController.h
 //  AirSegue
 //
 //  Created by Oleg Lobachev  (aironik@gmail.com) on 07.02.2013.
@@ -9,7 +9,7 @@
 #import <GLKit/GLKit.h>
 
 
-@interface ASImageChangerViewControler : GLKViewController
+@interface ASImageChangerViewController : GLKViewController
 
 @property (nonatomic, assign) BOOL useOriginalImagesAspect;
 @property (nonatomic, strong) UIImage *sourceImage;

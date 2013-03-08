@@ -8,7 +8,7 @@
 
 #import "ASTestStandViewController.h"
 
-#import "ASImageChangerViewControler.h"
+#import "ASImageChangerViewController.h"
 
 
 @interface ASTestStandViewController ()

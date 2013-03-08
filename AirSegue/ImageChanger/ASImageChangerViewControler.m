@@ -136,9 +136,8 @@
 #pragma mark -
 
 - (void)viewDidLoad {
+    NSParameterAssert([self.view isKindOfClass:[GLKView class]]);
     [super viewDidLoad];
-
-    self.eaglContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
 
     [self setupGL];
 
@@ -151,6 +150,13 @@
     self.sourceRenderer = [[ASChangeEffectRenderer  alloc] initWithRole:ASChangeEffectRendererRoleSource];
 
     self.paused = NO;
+}
+
+- (EAGLContext *)eaglContext {
+    if (!_eaglContext) {
+        _eaglContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    }
+    return _eaglContext;
 }
 
 - (void)didReceiveMemoryWarning {

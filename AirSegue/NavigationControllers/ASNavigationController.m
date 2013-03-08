@@ -50,7 +50,7 @@
     if (changeEffect) {
         UIImage *sourceImage = [self screenshot:self.visibleViewController.view];
         [super pushViewController:viewController animated:NO];
-        UIImage *targetImage = [self screenshot:viewController.view];
+        UIImage *destinationImage = [self screenshot:viewController.view];
 
         CGRect viewFrame = self.view.frame;
         CGRect processViewFrame = [self.view convertRect:viewFrame fromView:self.view.superview];
@@ -58,9 +58,10 @@
         [self.view addSubview:processView];
 
         changeEffect.sourceImage = sourceImage;
-        changeEffect.targetImage = targetImage;
+        changeEffect.destinationImage = destinationImage;
+        __strong ASPushEffect *effect = changeEffect;     //< change effect should live while animating (should be string ref)
         changeEffect.completionBlock = ^() {
-            [processView removeFromSuperview];
+            [effect.processView removeFromSuperview];
         };
         changeEffect.processView = processView;
         [changeEffect start];

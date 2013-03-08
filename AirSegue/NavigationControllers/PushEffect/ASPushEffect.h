@@ -10,7 +10,7 @@
 
 @property (nonatomic, strong) UIView *processView;
 @property (nonatomic, strong) UIImage *sourceImage;
-@property (nonatomic, strong) UIImage *targetImage;
+@property (nonatomic, strong) UIImage *destinationImage;
 @property (nonatomic, assign) NSTimeInterval duration;
 @property (nonatomic, copy) void(^completionBlock)();
 

@@ -12,8 +12,12 @@
 
 #import "ASRibbonPushEffect.h"
 
+#import "ASImageChangerViewControler.h"
+
 
 @interface ASRibbonPushEffect ()
+
+@property (nonatomic, strong) ASImageChangerViewControler *changer;
 
 @end
 
@@ -27,7 +31,29 @@
 }
 
 - (void)start {
-    [super start];
+    self.changer.sourceImage = self.sourceImage;
+    self.changer.destinationImage = self.destinationImage;
+    self.changer.view.frame = self.processView.bounds;
+    [self.processView addSubview:self.changer.view];
+    
+    __weak ASRibbonPushEffect *me = self;
+    self.changer.completionBlock = ^() {
+        __strong ASRibbonPushEffect *strongMe = me;
+        [strongMe.changer.view removeFromSuperview];
+        strongMe.changer = nil;
+        if (strongMe.completionBlock) {
+            strongMe.completionBlock();
+        }
+    };
+
+    [self.changer change];
+}
+
+- (ASImageChangerViewControler *)changer {
+    if (!_changer) {
+        _changer = [[ASImageChangerViewControler alloc] init];
+    }
+    return _changer;
 }
 
 @end

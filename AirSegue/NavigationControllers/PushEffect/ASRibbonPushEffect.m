@@ -36,7 +36,7 @@
     self.changer.destinationImage = self.destinationImage;
     self.changer.view.frame = self.processView.bounds;
     [self.processView addSubview:self.changer.view];
-    
+
     __weak ASRibbonPushEffect *me = self;
     self.changer.completionBlock = ^() {
         __strong ASRibbonPushEffect *strongMe = me;

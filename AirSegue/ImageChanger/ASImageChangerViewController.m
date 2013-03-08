@@ -49,37 +49,42 @@
 
 - (void)setSourceImage:(UIImage *)sourceImage {
     _sourceImage = sourceImage;
-    self.sourceTextureInfo = [GLKTextureLoader textureWithCGImage:_sourceImage.CGImage
-                                                          options:nil
-                                                            error:NULL];
+    [self refreshSourceTextureInfo];
 }
 
-- (void)setSourceTextureInfo:(GLKTextureInfo *)sourceTextureInfo {
-    _sourceTextureInfo = sourceTextureInfo;
-    self.sourceEffect.texture2d0.enabled = (_sourceTextureInfo != nil);
-    self.sourceEffect.texture2d0.name = _sourceTextureInfo.name;
-    self.sourceEffect.texture2d0.target = GLKTextureTarget2D;
-    self.sourceEffect.textureOrder = @[self.sourceEffect.texture2d0];
+- (void)refreshSourceTextureInfo {
+    if ([self isViewLoaded]) {
+        self.sourceTextureInfo = [GLKTextureLoader textureWithCGImage:_sourceImage.CGImage
+                                                              options:nil
+                                                                error:NULL];
+        self.sourceEffect.texture2d0.enabled = (self.sourceTextureInfo != nil);
+        self.sourceEffect.texture2d0.name = self.sourceTextureInfo.name;
+        self.sourceEffect.texture2d0.target = GLKTextureTarget2D;
+        self.sourceEffect.textureOrder = @[self.sourceEffect.texture2d0];
+    }
 }
 
 - (void)setDestinationImage:(UIImage *)destinationImage {
     _destinationImage = destinationImage;
-    self.destinationTextureInfo = [GLKTextureLoader textureWithCGImage:_destinationImage.CGImage
-                                                               options:nil
-                                                                 error:NULL];
+    [self refreshDestinationTextureInfo];
 }
 
-- (void)setDestinationTextureInfo:(GLKTextureInfo *)destinationTextureInfo {
-    _destinationTextureInfo = destinationTextureInfo;
-    self.destinationEffect.texture2d0.enabled = (_destinationTextureInfo != nil);
-    self.destinationEffect.texture2d0.name = _destinationTextureInfo.name;
-    self.destinationEffect.texture2d0.target = GLKTextureTarget2D;
-    self.destinationEffect.textureOrder = @[self.destinationEffect.texture2d0];
+- (void)refreshDestinationTextureInfo {
+    if ([self isViewLoaded]) {
+        self.destinationTextureInfo = [GLKTextureLoader textureWithCGImage:_destinationImage.CGImage
+                                                                   options:nil
+                                                                     error:NULL];
+        self.destinationEffect.texture2d0.enabled = (self.destinationTextureInfo != nil);
+        self.destinationEffect.texture2d0.name = self.destinationTextureInfo.name;
+        self.destinationEffect.texture2d0.target = GLKTextureTarget2D;
+        self.destinationEffect.textureOrder = @[self.destinationEffect.texture2d0];
+    }
 }
 
 - (GLKBaseEffect *)sourceEffect {
     if (!_sourceEffect) {
         _sourceEffect = [self createBaseEffect];
+        [self refreshSourceTextureInfo];
     }
     return _sourceEffect;
 }
@@ -87,6 +92,7 @@
 - (GLKBaseEffect *)destinationEffect {
     if (!_destinationEffect) {
         _destinationEffect = [self createBaseEffect];
+        [self refreshDestinationTextureInfo];
     }
     return _destinationEffect;
 }

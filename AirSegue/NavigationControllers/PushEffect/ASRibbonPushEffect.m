@@ -31,6 +31,7 @@
 }
 
 - (void)start {
+    self.changer.duration = self.duration;
     self.changer.sourceImage = self.sourceImage;
     self.changer.destinationImage = self.destinationImage;
     self.changer.view.frame = self.processView.bounds;
@@ -46,7 +47,7 @@
         }
     };
 
-    [self.changer change];
+    [self.changer start];
 }
 
 - (ASImageChangerViewController *)changer {

@@ -14,9 +14,10 @@
 @property (nonatomic, assign) BOOL useOriginalImagesAspect;
 @property (nonatomic, strong) UIImage *sourceImage;
 @property (nonatomic, strong) UIImage *destinationImage;
+@property (nonatomic, assign) NSTimeInterval duration;
+@property (nonatomic, assign) NSTimeInterval timeIntervalFromStart;
 @property (nonatomic, copy) void(^completionBlock)();
 
-- (void)change;
-- (void)setProgress:(NSTimeInterval)progress;
+- (void)start;
 
 @end

@@ -146,8 +146,8 @@
     
     glEnable(GL_DEPTH_TEST);
 
-    self.destinationRenderer = [[ASChangeEffectRenderer alloc] initWithRole:ASChangeEffectRendererRoleTarget];
-    self.sourceRenderer = [[ASChangeEffectRenderer  alloc] initWithRole:ASChangeEffectRendererRoleSource];
+    self.destinationRenderer = [ASChangeEffectRenderer ribbonRendererWithRole:ASChangeEffectRendererRoleDestination];
+    self.sourceRenderer = [ASChangeEffectRenderer ribbonRendererWithRole:ASChangeEffectRendererRoleSource];
 
     self.paused = NO;
 }
@@ -192,12 +192,10 @@
 }
 
 - (void)update {
+    [self updateTimer];
+
     [self updateEffect:self.sourceEffect];
     [self updateEffect:self.destinationEffect];
-
-    NSTimeInterval time = self.timeSinceLastUpdate; 
-    [self.sourceRenderer update:time];
-    [self.destinationRenderer update:time];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
@@ -211,17 +209,48 @@
     [self.destinationRenderer render];
 }
 
-- (void)change {
-    [self.sourceRenderer start];
-    [self.destinationRenderer start];
+- (void)start {
+    NSAssert(self.duration > 0.0, @"%@ duration can't be 0.", NSStringFromClass([self class]));
+    self.paused = NO;
 }
 
-- (void)setProgress:(NSTimeInterval)progress {
-    [self.sourceRenderer stop];
-    self.sourceRenderer.time = progress;
+- (void)setPaused:(BOOL)paused {
+    [super setPaused:paused];
 
-    [self.destinationRenderer stop];
-    self.destinationRenderer.time = progress;
+    ((GLKView *)self.view).enableSetNeedsDisplay = paused;
+    if (paused) {
+        [self.view setNeedsDisplay];
+        if (self.completionBlock) {
+            self.completionBlock();
+        }
+    } else {
+        self.timeIntervalFromStart = 0.0;
+    }
+}
+
+- (void)updateTimer {
+    if (!self.paused) {
+        NSTimeInterval timeDelta = self.timeSinceLastUpdate;
+        if (timeDelta + self.timeIntervalFromStart > self.duration) {
+            self.timeIntervalFromStart = self.duration;
+            self.paused = YES;
+        } else {
+            self.timeIntervalFromStart += timeDelta;
+        }
+    }
+}
+
+- (void)setTimeIntervalFromStart:(NSTimeInterval)timeIntervalFromStart {
+    _timeIntervalFromStart = timeIntervalFromStart;
+    const float rendererProgressLength = kASChangeEffectRendererProgressEnd - kASChangeEffectRendererProgressStart;
+    const float timeProgress = timeIntervalFromStart / self.duration;
+    const float rendererProgress = kASChangeEffectRendererProgressStart + rendererProgressLength * timeProgress;
+
+    self.sourceRenderer.progress = rendererProgress;
+    self.destinationRenderer.progress = rendererProgress;
+    if (self.paused) {
+        [self.view setNeedsDisplay];
+    }
 }
 
 @end

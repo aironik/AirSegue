@@ -26,6 +26,9 @@
 - (void)setupChanger {
     self.imageChanger.sourceImage = [UIImage imageNamed:@"sourceImage.png"];
     self.imageChanger.destinationImage = [UIImage imageNamed:@"destinationImage.png"];
+    UISlider *valueSlider = self.valueSlider;
+    self.imageChanger.duration = valueSlider.maximumValue;
+    self.imageChanger.paused = YES;
 }
 
 - (void)dealloc {
@@ -36,11 +39,11 @@
 }
 
 - (IBAction)change:(id)sender {
-    [self.imageChanger change];
+    [self.imageChanger start];
 }
 
 - (IBAction)sliderValueDidChange:(UISlider *)sender {
-    [self.imageChanger setProgress:sender.value];
+    self.imageChanger.timeIntervalFromStart = sender.value;
 }
 
 - (IBAction)sliderXAngleDidChange:(UISlider *)sender {

@@ -14,6 +14,8 @@
 
 #import "Ribbon.h"
 
+float kASChangeEffectRendererProgressStart = Surfaces::Surface::BEGIN_PROGRESS;
+float kASChangeEffectRendererProgressEnd = Surfaces::Surface::END_PROGRESS;
 
 @interface ASChangeEffectRenderer ()
 
@@ -27,26 +29,33 @@
 
 @implementation ASChangeEffectRenderer
 
++ (instancetype)ribbonRendererWithRole:(ASChangeEffectRendererRole)role {
+    Surfaces::Surface *surface = new Surfaces::Ribbon();
+    return [[self alloc] initWithSurface:surface role:role];
+}
+
 - (id)init {
     NSAssert(NO, @"Use -initWithRole: instead");
     return nil;
 }
 
-- (id)initWithRole:(ASChangeEffectRendererRole)role {
+- (id)initWithSurface:(Surfaces::Surface *)surface role:(ASChangeEffectRendererRole)role {
     if (self = [super init]) {
-        _surface = new Surfaces::Ribbon();
+        _surface = surface;
         _role = role;
         switch (role) {
             case ASChangeEffectRendererRoleSource:
                 _surface->setRole(Surfaces::Surface::ROLE_SOURCE);
                 break;
-            case ASChangeEffectRendererRoleTarget:
+            case ASChangeEffectRendererRoleDestination:
                 _surface->setRole(Surfaces::Surface::ROLE_TARGET);
                 break;
             default:
                 NSAssert(NO, @"Unknown role type.");
                 break;
         }
+    } else {
+        delete surface;
     }
     return self;
 }
@@ -55,29 +64,17 @@
     delete _surface;
 }
 
-- (void)update:(NSTimeInterval)timeSinceLastUpdate {
-    if (self.started) {
-        self.time += timeSinceLastUpdate;
-        self.surface->setProgress(self.time);
-    }
-}
+- (void)setProgress:(float)progress {
+    NSAssert3(kASChangeEffectRendererProgressStart <= progress && progress <= kASChangeEffectRendererProgressEnd,
+              @"Unhandled progress value (%f). should bounds [%f..%f]",
+              progress, kASChangeEffectRendererProgressStart, kASChangeEffectRendererProgressEnd);
 
-- (void)setTime:(NSTimeInterval)time {
-    _time = time;
-    self.surface->setProgress(time);
+    _progress = std::max(kASChangeEffectRendererProgressStart, std::max(progress, kASChangeEffectRendererProgressEnd));
+    self.surface->setProgress(progress);
 }
 
 - (void)render {
     self.surface->draw();
-}
-
-- (void)start {
-    self.time = 0.0;
-    self.started = YES;
-}
-
-- (void)stop {
-    self.started = NO;
 }
 
 @end

@@ -28,7 +28,6 @@
     self.imageChanger.destinationImage = [UIImage imageNamed:@"destinationImage.png"];
     UISlider *valueSlider = self.valueSlider;
     self.imageChanger.duration = valueSlider.maximumValue;
-    self.imageChanger.paused = YES;
 }
 
 - (void)dealloc {

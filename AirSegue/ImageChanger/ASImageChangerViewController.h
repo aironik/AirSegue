@@ -19,5 +19,6 @@
 @property (nonatomic, copy) void(^completionBlock)();
 
 - (void)start;
+- (void)stop;
 
 @end

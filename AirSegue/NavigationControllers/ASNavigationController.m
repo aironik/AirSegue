@@ -52,19 +52,7 @@
         [super pushViewController:viewController animated:NO];
         UIImage *destinationImage = [self screenshot:viewController.view];
 
-        CGRect viewFrame = self.view.frame;
-        CGRect processViewFrame = [self.view convertRect:viewFrame fromView:self.view.superview];
-        UIView *processView = [[UIView alloc] initWithFrame:processViewFrame];
-        [self.view addSubview:processView];
-
-        changeEffect.sourceImage = sourceImage;
-        changeEffect.destinationImage = destinationImage;
-        __strong ASPushEffect *effect = changeEffect;     //< change effect should live while animating (should be string ref)
-        changeEffect.completionBlock = ^() {
-            [effect.processView removeFromSuperview];
-        };
-        changeEffect.processView = processView;
-        [changeEffect start];
+        [self changeFromSourceImage:sourceImage toDestinationImage:destinationImage withChangeEffect:changeEffect];
     } else {
         [super pushViewController:viewController animated:YES];
     }
@@ -83,8 +71,11 @@
 - (UIViewController *)popViewControllerWithChangeEffect:(ASPushEffect *)changeEffect {
     UIViewController *result = nil;
     if (changeEffect) {
-        // TODO: write me
+        UIImage *sourceImage = [self screenshot:self.visibleViewController.view];
         result = [super popViewControllerAnimated:NO];
+        UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
+
+        [self changeFromSourceImage:sourceImage toDestinationImage:destinationImage withChangeEffect:changeEffect];
     } else {
         result = [super popViewControllerAnimated:NO];
     }
@@ -104,8 +95,11 @@
 - (NSArray *)popToRootViewControllerWithChangeEffect:(ASPushEffect *)changeEffect {
     NSArray *result = nil;
     if (changeEffect) {
-        // TODO: write me
+        UIImage *sourceImage = [self screenshot:self.visibleViewController.view];
         result = [super popToRootViewControllerAnimated:NO];
+        UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
+
+        [self changeFromSourceImage:sourceImage toDestinationImage:destinationImage withChangeEffect:changeEffect];
     } else {
         result = [super popToRootViewControllerAnimated:NO];
     }
@@ -127,12 +121,34 @@
 {
     NSArray *result = nil;
     if (changeEffect) {
-        // TODO: write me
+        UIImage *sourceImage = [self screenshot:self.visibleViewController.view];
         result = [super popToViewController:viewController animated:NO];
+        UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
+
+        [self changeFromSourceImage:sourceImage toDestinationImage:destinationImage withChangeEffect:changeEffect];
     } else {
         result = [super popToViewController:viewController animated:NO];
     }
     return result;
+}
+
+- (void)changeFromSourceImage:(UIImage *)sourceImage
+           toDestinationImage:(UIImage *)destinationImage
+             withChangeEffect:(ASPushEffect *)changeEffect
+{
+    CGRect viewFrame = self.view.frame;
+    CGRect processViewFrame = [self.view convertRect:viewFrame fromView:self.view.superview];
+    UIView *processView = [[UIView alloc] initWithFrame:processViewFrame];
+    [self.view addSubview:processView];
+
+    changeEffect.sourceImage = sourceImage;
+    changeEffect.destinationImage = destinationImage;
+    __strong ASPushEffect *effect = changeEffect;     //< change effect should live while animating (should be string ref)
+    changeEffect.completionBlock = ^() {
+        [effect.processView removeFromSuperview];
+    };
+    changeEffect.processView = processView;
+    [changeEffect start];
 }
 
 - (UIImage *)screenshot:(UIView *)view {

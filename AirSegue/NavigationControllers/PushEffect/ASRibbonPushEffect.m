@@ -15,6 +15,8 @@
 #import "ASImageChangerViewController.h"
 
 
+static const NSTimeInterval kASRibbonPushEffectDuration = 1.0;
+
 @interface ASRibbonPushEffect ()
 
 @property (nonatomic, strong) ASImageChangerViewController *changer;
@@ -27,7 +29,9 @@
 @implementation ASRibbonPushEffect
 
 + (instancetype)effect {
-    return [[self alloc] init];
+    ASRibbonPushEffect *result = [[self alloc] init];
+    result.duration = kASRibbonPushEffectDuration;
+    return result;
 }
 
 - (void)start {

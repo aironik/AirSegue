@@ -136,29 +136,48 @@
 }
 
 - (UIImage *)screenshot:(UIView *)view {
-    CGSize size = view.bounds.size;
+    // https://developer.apple.com/library/ios/#qa/qa2010/qa1703.html
 
-    CGFloat scale = MAX(1.0f, view.window.screen.scale);
+    // Create a graphics context with the target size
+    // On iOS 4 and later, use UIGraphicsBeginImageContextWithOptions to take the scale into consideration
+    // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
+    CGSize imageSize = [[UIScreen mainScreen] bounds].size;
+    if (NULL != UIGraphicsBeginImageContextWithOptions) {
+        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
+    } else {
+        UIGraphicsBeginImageContext(imageSize);
+    }
 
-    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-    CGContextRef context = CGBitmapContextCreate(NULL, size.width * scale,
-                                                       size.height * scale,
-                                                       8,
-                                                       4 * size.width * scale,
-                                                       colorSpaceRef,
-                                                       (kCGBitmapByteOrder32Little | kCGImageAlphaNoneSkipLast));
-    CGColorSpaceRelease(colorSpaceRef);
+    CGContextRef context = UIGraphicsGetCurrentContext();
 
-    CGContextTranslateCTM(context, 0, size.height * scale);
-    CGContextScaleCTM(context, scale, -scale);
+    // Iterate over every window from back to front
+    for (UIWindow *window in [[UIApplication sharedApplication] windows]) {
+//        if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen])
+        {
+            // -renderInContext: renders in the coordinate space of the layer,
+            // so we must first apply the layer's geometry to the graphics context
+            CGContextSaveGState(context);
+            // Center the context around the window's anchor point
+            CGContextTranslateCTM(context, [window center].x, [window center].y);
+            // Apply the window's transform about the anchor point
+            CGContextConcatCTM(context, [window transform]);
+            // Offset by the portion of the bounds left of and above the anchor point
+            CGContextTranslateCTM(context,
+                                  -[window bounds].size.width * [[window layer] anchorPoint].x,
+                                  -[window bounds].size.height * [[window layer] anchorPoint].y);
 
-    [view.layer renderInContext:context];
+            // Render the layer hierarchy to the current context
+            [[window layer] renderInContext:context];
 
-    CGImageRef cgImage = CGBitmapContextCreateImage(context);
-    UIImage *image = [UIImage imageWithCGImage:cgImage scale:scale orientation:UIImageOrientationUp];
+            // Restore the context
+            CGContextRestoreGState(context);
+        }
+    }
 
-    CGImageRelease(cgImage);
-    CGContextRelease(context);
+    // Retrieve the screenshot image
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+
+    UIGraphicsEndImageContext();
 
     return image;
 }

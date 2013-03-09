@@ -137,7 +137,7 @@
 }
 
 - (GLKVector4)lightPosition {
-    return GLKVector4Make(1.0f, 2.0f, 2.0f, 0.0f);
+    return GLKVector4Make(0.0f, 0.0f, 2.0f, 0.0f);
 }
 
 

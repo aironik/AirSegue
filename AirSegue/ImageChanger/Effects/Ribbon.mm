@@ -50,7 +50,7 @@ Vertex3D Ribbon::rotateVertex(const Vertex3D &vertex) const {
     float alpha = M_PI * (std::max(0.0f, std::min(offset + 0.5f, 1.0f)) + adjustmentForRole);
 
     GLKMatrix3 rotateMatrix = GLKMatrix3RotateX(GLKMatrix3Identity, alpha);
-    Vector3 pneumocushionOffset(0.0f, 0.0f, getPneumocushion() / 2.0f);
+    Vector3 pneumocushionOffset(0.0f, 0.0f, -getPneumocushion() / 2.0f);
     Vector3 pos = (vertex.position + pneumocushionOffset);
     result.position = GLKMatrix3MultiplyVector3(rotateMatrix, pos.glkVector);
     result.normal = GLKMatrix3MultiplyVector3(rotateMatrix, result.normal.glkVector);

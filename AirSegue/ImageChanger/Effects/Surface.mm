@@ -96,7 +96,7 @@ void Surface::cutRectangle(int horizontalSegmentsCount, int verticalSegmentsCoun
 void Surface::pushCutVectorAtXY(int x, int y, int horizontalSegmentsCount, int verticalSegmentsCount) {
     Vertex3D vertex;
     vertex.position = Vector3(1.0f * x / horizontalSegmentsCount - 0.5f, 1.0f * y / verticalSegmentsCount - 0.5f, 0.0f);
-    vertex.normal = Vector3(0.0f, 0.0f, 1.0f);
+    vertex.normal = Vector3(0.0f, 0.0f, -1.0f);
     vertex.texCoord = Vector2(1.0f * x / horizontalSegmentsCount, 1.0f * y / verticalSegmentsCount);
     originalVertexes.push_back(vertex);
 }

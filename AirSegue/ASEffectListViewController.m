@@ -40,6 +40,14 @@ enum {
 
 @implementation ASEffectListViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    ASRibbonPushEffect *defaultPushEffect = [ASRibbonPushEffect effect];
+    ASNavigationController *navigationController = (ASNavigationController *)self.navigationController;
+    navigationController.pushEffect = defaultPushEffect;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }

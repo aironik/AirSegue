@@ -76,7 +76,7 @@
         result = [super popViewControllerAnimated:NO];
         UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
 
-        [self prepareEffectForSourceImage:sourceImage destinationImage:destinationImage withChangeEffect:changeEffect];
+        [self prepareEffectForSourceImage:destinationImage destinationImage:sourceImage withChangeEffect:changeEffect];
         [changeEffect startBackward];
     } else {
         result = [super popViewControllerAnimated:NO];
@@ -101,7 +101,7 @@
         result = [super popToRootViewControllerAnimated:NO];
         UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
 
-        [self prepareEffectForSourceImage:sourceImage destinationImage:destinationImage withChangeEffect:changeEffect];
+        [self prepareEffectForSourceImage:destinationImage destinationImage:sourceImage withChangeEffect:changeEffect];
         [changeEffect startBackward];
     } else {
         result = [super popToRootViewControllerAnimated:NO];
@@ -128,7 +128,7 @@
         result = [super popToViewController:viewController animated:NO];
         UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
 
-        [self prepareEffectForSourceImage:sourceImage destinationImage:destinationImage withChangeEffect:changeEffect];
+        [self prepareEffectForSourceImage:destinationImage destinationImage:sourceImage withChangeEffect:changeEffect];
         [changeEffect startBackward];
     } else {
         result = [super popToViewController:viewController animated:NO];

@@ -55,10 +55,12 @@ static const NSTimeInterval kASRibbonPushEffectDuration = 1.0;
 }
 
 - (void)startForward {
+    self.changer.directionBackward = NO;
     [self start];
 }
 
 - (void)startBackward {
+    self.changer.directionBackward = YES;
     [self start];
 }
 

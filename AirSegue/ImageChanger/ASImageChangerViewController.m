@@ -249,7 +249,9 @@
 - (void)updateRenderersProgress {
     const float rendererProgressLength = kASChangeEffectRendererProgressEnd - kASChangeEffectRendererProgressStart;
     const float timeProgress = self.timeIntervalFromStart / self.duration;
-    const float rendererProgress = kASChangeEffectRendererProgressStart + rendererProgressLength * timeProgress;
+    const float rendererProgress = self.directionBackward
+                                 ? kASChangeEffectRendererProgressEnd - rendererProgressLength * timeProgress
+                                 : kASChangeEffectRendererProgressStart + rendererProgressLength * timeProgress;
 
     self.sourceRenderer.progress = rendererProgress;
     self.destinationRenderer.progress = rendererProgress;

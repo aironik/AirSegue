@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UIImage *sourceImage;
 @property (nonatomic, strong) UIImage *destinationImage;
 @property (nonatomic, assign) NSTimeInterval duration;
+@property (nonatomic, assign) BOOL directionBackward;
 @property (nonatomic, assign) NSTimeInterval timeIntervalFromStart;
 @property (nonatomic, copy) void(^completionBlock)();
 

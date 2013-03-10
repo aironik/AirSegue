@@ -181,6 +181,7 @@
 				000E085616ECF22800DEC725 /* ASRibbonSettingsViewController.xib */,
 				C4E3E7A14257AAEF6D002A88 /* ASTestStandViewController.h */,
 				C4E3E20F522D36F580D60F09 /* ASTestStandViewController.m */,
+				C4E3E7D08594E263CFD526D1 /* ASTestStandViewController.xib */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -241,7 +242,6 @@
 				C4E3E8226278E3728E477773 /* Supporting Files */,
 				C4E3EE1DB27ED681EBC18C27 /* ASAppDelegate.h */,
 				C4E3EF55FD97B90C74A74C0E /* ASAppDelegate.m */,
-				C4E3E7D08594E263CFD526D1 /* ASTestStandViewController.xib */,
 				C4E3E6DA53F5C196D3C0B317 /* sourceImage.png */,
 				C4E3E4752F80D9CF7329EC2A /* destinationImage.png */,
 			);
@@ -453,6 +453,7 @@
 				C4E3E9844563B17AF1FD9639 /* ASTestViewController_iPhone.xib */,
 			);
 			name = ASTestStandViewController.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

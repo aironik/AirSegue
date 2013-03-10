@@ -9,6 +9,8 @@
 #import <GLKit/GLKit.h>
 
 
+@class ASChangeEffectRenderer;
+
 @interface ASImageChangerViewController : GLKViewController
 
 @property (nonatomic, assign) BOOL useOriginalImagesAspect;
@@ -18,6 +20,9 @@
 @property (nonatomic, assign) BOOL directionBackward;
 @property (nonatomic, assign) NSTimeInterval timeIntervalFromStart;
 @property (nonatomic, copy) void(^completionBlock)();
+@property (nonatomic, strong) ASChangeEffectRenderer *destinationRenderer;
+@property (nonatomic, strong) ASChangeEffectRenderer *sourceRenderer;
+@property (nonatomic, strong) Class effectClass;
 
 - (void)start;
 - (void)stop;

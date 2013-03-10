@@ -9,6 +9,7 @@
 #import "ASTestStandViewController.h"
 
 #import "ASImageChangerViewController.h"
+#import "ASRibbonChangeEffectRenderer.h"
 
 
 @interface ASTestStandViewController ()
@@ -24,6 +25,7 @@
 }
 
 - (void)setupChanger {
+    self.imageChanger.effectClass = [ASRibbonChangeEffectRenderer class];
     self.imageChanger.sourceImage = [UIImage imageNamed:@"sourceImage.png"];
     self.imageChanger.destinationImage = [UIImage imageNamed:@"destinationImage.png"];
     UISlider *valueSlider = self.valueSlider;

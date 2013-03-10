@@ -13,6 +13,7 @@
 #import "ASRibbonPushEffect.h"
 
 #import "ASImageChangerViewController.h"
+#import "ASRibbonChangeEffectRenderer.h"
 
 
 static const NSTimeInterval kASRibbonPushEffectDuration = 1.0;
@@ -27,6 +28,8 @@ static const NSTimeInterval kASRibbonPushEffectDuration = 1.0;
 #pragma mark - Implementation
 
 @implementation ASRibbonPushEffect
+
+@dynamic pneumocushion;
 
 + (instancetype)effect {
     ASRibbonPushEffect *result = [[self alloc] init];
@@ -67,8 +70,21 @@ static const NSTimeInterval kASRibbonPushEffectDuration = 1.0;
 - (ASImageChangerViewController *)changer {
     if (!_changer) {
         _changer = [[ASImageChangerViewController alloc] init];
+        _changer.effectClass = [ASRibbonChangeEffectRenderer class];
     }
     return _changer;
+}
+
+- (float)pneumocushion {
+    ASRibbonChangeEffectRenderer *renderer = (ASRibbonChangeEffectRenderer *)self.changer.sourceRenderer;
+    return renderer.pneumocushion;
+}
+
+- (void)setPneumocushion:(float)pneumocushion {
+    ASRibbonChangeEffectRenderer *sourceRenderer = (ASRibbonChangeEffectRenderer *)self.changer.sourceRenderer;
+    ASRibbonChangeEffectRenderer *destinationRenderer = (ASRibbonChangeEffectRenderer *)self.changer.destinationRenderer;
+    sourceRenderer.pneumocushion = pneumocushion;
+    destinationRenderer.pneumocushion = pneumocushion;
 }
 
 @end

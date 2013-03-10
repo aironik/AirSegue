@@ -28,9 +28,6 @@
 
 @property (nonatomic, assign, readonly) GLKVector4 lightDiffuseColor;
 
-@property (nonatomic, strong) ASChangeEffectRenderer *destinationRenderer;
-@property (nonatomic, strong) ASChangeEffectRenderer *sourceRenderer;
-
 @property (nonatomic, assign) BOOL changing;
 
 @end
@@ -45,6 +42,13 @@
 
     if ([EAGLContext currentContext] == self.eaglContext) {
         [EAGLContext setCurrentContext:nil];
+    }
+}
+
+- (void)setEffectClass:(Class)effectClass {
+    if (_effectClass != effectClass) {
+        _effectClass = effectClass;
+        [self createRenderers];
     }
 }
 
@@ -154,11 +158,17 @@
     [self sourceEffect];
     
     glEnable(GL_DEPTH_TEST);
-
-    self.destinationRenderer = [ASRibbonChangeEffectRenderer effectRendererWithRole:ASChangeEffectRendererRoleDestination];
-    self.sourceRenderer = [ASRibbonChangeEffectRenderer effectRendererWithRole:ASChangeEffectRendererRoleSource];
+    
+    [self createRenderers];
 
     self.paused = NO;
+}
+
+- (void)createRenderers {
+    if ([self isViewLoaded]) {
+        self.destinationRenderer = [self.effectClass effectRendererWithRole:ASChangeEffectRendererRoleDestination];
+        self.sourceRenderer = [self.effectClass effectRendererWithRole:ASChangeEffectRendererRoleSource];
+    }
 }
 
 - (EAGLContext *)eaglContext {

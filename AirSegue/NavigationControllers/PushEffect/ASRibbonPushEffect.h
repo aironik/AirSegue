@@ -11,6 +11,8 @@
 
 @interface ASRibbonPushEffect : ASPushEffect
 
+@property (nonatomic, assign) float pneumocushion;
+
 + (instancetype)effect;
 
 @end

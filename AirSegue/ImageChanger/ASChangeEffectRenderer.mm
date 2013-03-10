@@ -29,11 +29,6 @@ float kASChangeEffectRendererProgressEnd = Surfaces::Surface::END_PROGRESS;
 
 @implementation ASChangeEffectRenderer
 
-+ (instancetype)ribbonRendererWithRole:(ASChangeEffectRendererRole)role {
-    Surfaces::Surface *surface = new Surfaces::Ribbon();
-    return [[self alloc] initWithSurface:surface role:role];
-}
-
 - (id)init {
     NSAssert(NO, @"Use -initWithRole: instead");
     return nil;

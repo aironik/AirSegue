@@ -13,6 +13,7 @@
 #import "ASImageChangerViewController.h"
 
 #import "ASChangeEffectRenderer.h"
+#import "ASRibbonChangeEffectRenderer.h"
 
 
 @interface ASImageChangerViewController ()
@@ -154,8 +155,8 @@
     
     glEnable(GL_DEPTH_TEST);
 
-    self.destinationRenderer = [ASChangeEffectRenderer ribbonRendererWithRole:ASChangeEffectRendererRoleDestination];
-    self.sourceRenderer = [ASChangeEffectRenderer ribbonRendererWithRole:ASChangeEffectRendererRoleSource];
+    self.destinationRenderer = [ASRibbonChangeEffectRenderer effectRendererWithRole:ASChangeEffectRendererRoleDestination];
+    self.sourceRenderer = [ASRibbonChangeEffectRenderer effectRendererWithRole:ASChangeEffectRendererRoleSource];
 
     self.paused = NO;
 }

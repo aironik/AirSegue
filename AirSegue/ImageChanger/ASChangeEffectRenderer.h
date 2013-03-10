@@ -37,10 +37,6 @@ extern float kASChangeEffectRendererProgressEnd;
 ///     for progress == kASChangeEffectRendererProgressEnd.
 @property (nonatomic, assign, readonly) ASChangeEffectRendererRole role;
 
-/// @brief create ribbon change effect renderer for surface role.
-/// @see role
-+ (instancetype)ribbonRendererWithRole:(ASChangeEffectRendererRole)role;
-
 /// @brief Render current surface scene.
 - (void)render;
 

@@ -33,6 +33,7 @@
 		C4E3EB086B6DB5C9F5266D8F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E3EB02630C59CDB47BB488 /* Default@2x.png */; };
 		C4E3EBC5F3FED4D2118D4B43 /* ASRibbonPushEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EB2A45D82B90B63A8E71 /* ASRibbonPushEffect.m */; };
 		C4E3ED0AB9F1FEB03E850CF3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E324EC8B6F40AE72EF21 /* InfoPlist.strings */; };
+		C4E3EDE34D4A9E92FCE6A7A8 /* ASFadePushEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E7D71AFAEA527852D52A /* ASFadePushEffect.m */; };
 		C4E3EE008E7AF4E42D52884E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E6FBB8BF0E33465C805F /* main.m */; };
 		C4E3EF5C026AF06F325B55A0 /* destinationImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E4752F80D9CF7329EC2A /* destinationImage.png */; };
 		C4E3EF615644DDFD4F87A5D3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E3EC9332C288F133F6DEAC /* Default.png */; };
@@ -63,6 +64,7 @@
 		C4E3E25972C74EB39033A9CF /* AirSegue-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirSegue-Prefix.pch"; sourceTree = "<group>"; };
 		C4E3E279B96D100707971A1D /* ASImageChangerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASImageChangerViewController.h; sourceTree = "<group>"; };
 		C4E3E3AA9F6799A13DB4F053 /* ASChangeEffectRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASChangeEffectRenderer.mm; sourceTree = "<group>"; };
+		C4E3E45BD312CFF625CACED2 /* ASFadePushEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFadePushEffect.h; sourceTree = "<group>"; };
 		C4E3E4752F80D9CF7329EC2A /* destinationImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = destinationImage.png; sourceTree = "<group>"; };
 		C4E3E4D1F9286FA3288FD56E /* AirSegueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirSegueTests.m; sourceTree = "<group>"; };
 		C4E3E5559D991F98A3F2BD52 /* Surface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Surface.mm; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		C4E3E76091EF1AF6005E229D /* Vertex3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex3D.h; sourceTree = "<group>"; };
 		C4E3E76809EC752896FB0F8B /* ASNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNavigationController.h; sourceTree = "<group>"; };
 		C4E3E7A14257AAEF6D002A88 /* ASTestStandViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTestStandViewController.h; sourceTree = "<group>"; };
+		C4E3E7D71AFAEA527852D52A /* ASFadePushEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFadePushEffect.m; sourceTree = "<group>"; };
 		C4E3E8C32674D56D8242463F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C4E3E94CDA13EE752AFC3580 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		C4E3E9844563B17AF1FD9639 /* ASTestViewController_iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ASTestViewController_iPhone.xib; path = en.lproj/ASTestStandViewController.xib; sourceTree = "<group>"; };
@@ -253,6 +256,8 @@
 				C4E3E663A97A80313549893D /* ASPushEffect.m */,
 				C4E3E0FEDFC4A35D6870137F /* ASRibbonPushEffect.h */,
 				C4E3EB2A45D82B90B63A8E71 /* ASRibbonPushEffect.m */,
+				C4E3E7D71AFAEA527852D52A /* ASFadePushEffect.m */,
+				C4E3E45BD312CFF625CACED2 /* ASFadePushEffect.h */,
 			);
 			path = PushEffect;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				C4E3E7974AD5C1889FB7D5AC /* ASNavigationController.m in Sources */,
 				C4E3E0F8C8B3E413D6C438C1 /* ASPushEffect.m in Sources */,
 				C4E3EBC5F3FED4D2118D4B43 /* ASRibbonPushEffect.m in Sources */,
+				C4E3EDE34D4A9E92FCE6A7A8 /* ASFadePushEffect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

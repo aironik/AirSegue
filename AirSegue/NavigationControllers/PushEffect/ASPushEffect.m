@@ -31,39 +31,18 @@ static const NSTimeInterval kASPushEffectDuration = 0.3;
     return self;
 }
 
-- (void)start {
-    UIImageView *sourceImageView = [[UIImageView alloc] initWithImage:self.sourceImage];
-    UIImageView *destinationImageView = [[UIImageView alloc] initWithImage:self.destinationImage];
-    sourceImageView.frame = self.processView.bounds;
-    destinationImageView.frame = self.processView.bounds;
-
-    sourceImageView.alpha = 1.0f;
-    destinationImageView.alpha = 0.0f;
-
-    [self.processView addSubview:sourceImageView];
-    [self.processView addSubview:destinationImageView];
-
-    __weak ASPushEffect *me = self;
-    [UIView animateWithDuration:self.duration animations:^() {
-        sourceImageView.alpha = 0.0f;
-        destinationImageView.alpha = 1.0f;
-    }                completion:^(BOOL finished) {
-        [sourceImageView removeFromSuperview];
-        [destinationImageView removeFromSuperview];
-
-        __strong ASPushEffect *strongMe = me;
-        if (strongMe.completionBlock) {
-            strongMe.completionBlock();
-        }
-    }];
-}
-
 - (void)startForward {
-    [self start];
+    NSAssert1(NO, @"%s method doesn't implement. You should override this method.", __func__);
+    if (self.completionBlock) {
+        self.completionBlock();
+    }
 }
 
 - (void)startBackward {
-    [self start];
+    NSAssert1(NO, @"%s method doesn't implement. You should override this method.", __func__);
+    if (self.completionBlock) {
+        self.completionBlock();
+    }
 }
 
 @end

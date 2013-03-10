@@ -23,7 +23,9 @@ static const float torsionLength = ribbonLength;
 
 namespace Surfaces {
 
-Ribbon::Ribbon() {
+Ribbon::Ribbon()
+        : pneumocushion(0.02f)
+{
     cutRectangle(10, 10);
 }
 

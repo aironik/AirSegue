@@ -18,15 +18,20 @@ namespace Surfaces {
 class Ribbon : public Surface {
 public:
     Ribbon();
-    
+
+    void setPneumocushion(float newPneumocushion) { pneumocushion = newPneumocushion; }
+    float getPneumocushion() const { return pneumocushion; }
+
 protected:
     virtual void updateVertexes();
     virtual bool haveTexCoord() const { return true; }
     virtual bool haveColor() const { return true; }
 
 private:
-    float getPneumocushion() const { return 0.02f; }
     Vertex3D rotateVertex(const Vertex3D &vertex) const;
+
+private:
+    float pneumocushion;
 };
 
 } // namespace Surfaces

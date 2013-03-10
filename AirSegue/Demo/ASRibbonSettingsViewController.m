@@ -15,11 +15,39 @@
 
 @interface ASRibbonSettingsViewController ()
 
+@property (nonatomic, weak) IBOutlet UISlider *durationSlider;
+@property (nonatomic, weak) IBOutlet UILabel *durationLabel;
+
+- (IBAction)durationSliderChanger:(UISlider *)slider;
+
 @end
 
 
 #pragma mark - Implementation
 
 @implementation ASRibbonSettingsViewController
+
+static NSTimeInterval duration = 1.0;
+
++ (NSTimeInterval)duration {
+    return duration;
+}
+
++ (void)setDuration:(NSTimeInterval)value {
+    duration = value;
+}
+
+- (IBAction)durationSliderChanger:(UISlider *)slider {
+    [[self class] setDuration:slider.value];
+    UILabel *label = self.durationLabel;
+    label.text = [NSString stringWithFormat:@"%1.1f", slider.value];
+}
+
+- (void)viewDidLoad {
+    UILabel *label = self.durationLabel;
+    label.text = [NSString stringWithFormat:@"%1.1f", [[self class] duration]];
+    UISlider *slider = self.durationSlider;
+    slider.value = [[self class] duration];
+}
 
 @end

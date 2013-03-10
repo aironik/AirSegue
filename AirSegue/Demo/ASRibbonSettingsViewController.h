@@ -10,4 +10,6 @@
 
 @interface ASRibbonSettingsViewController : UIViewController
 
++ (NSTimeInterval)duration;
+
 @end

@@ -171,6 +171,7 @@ enum {
 - (void)showRibbonEffect1 {
     ASRibbonSettingsViewController *vc = [[ASRibbonSettingsViewController alloc] initWithNibName:nil bundle:nil];
     ASRibbonPushEffect *pushEffect = [ASRibbonPushEffect effect];
+    pushEffect.duration = [ASRibbonSettingsViewController duration];
     [(ASNavigationController *)self.navigationController pushViewController:vc
                                                             withChangeEffect:pushEffect];
 }

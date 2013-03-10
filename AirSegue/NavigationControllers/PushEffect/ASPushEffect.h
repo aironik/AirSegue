@@ -14,6 +14,6 @@
 @property (nonatomic, assign) NSTimeInterval duration;
 @property (nonatomic, copy) void(^completionBlock)();
 
-- (void)start;
-
+- (void)startForward;
+- (void)startBackward;
 @end

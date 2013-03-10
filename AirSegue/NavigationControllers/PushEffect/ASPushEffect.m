@@ -48,11 +48,22 @@ static const NSTimeInterval kASPushEffectDuration = 0.3;
         sourceImageView.alpha = 0.0f;
         destinationImageView.alpha = 1.0f;
     }                completion:^(BOOL finished) {
+        [sourceImageView removeFromSuperview];
+        [destinationImageView removeFromSuperview];
+
         __strong ASPushEffect *strongMe = me;
         if (strongMe.completionBlock) {
             strongMe.completionBlock();
         }
     }];
+}
+
+- (void)startForward {
+    [self start];
+}
+
+- (void)startBackward {
+    [self start];
 }
 
 @end

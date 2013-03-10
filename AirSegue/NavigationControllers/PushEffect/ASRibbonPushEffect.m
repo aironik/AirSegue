@@ -54,6 +54,14 @@ static const NSTimeInterval kASRibbonPushEffectDuration = 1.0;
     [self.changer start];
 }
 
+- (void)startForward {
+    [self start];
+}
+
+- (void)startBackward {
+    [self start];
+}
+
 - (ASImageChangerViewController *)changer {
     if (!_changer) {
         _changer = [[ASImageChangerViewController alloc] init];

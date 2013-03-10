@@ -52,7 +52,8 @@
         [super pushViewController:viewController animated:NO];
         UIImage *destinationImage = [self screenshot:viewController.view];
 
-        [self changeFromSourceImage:sourceImage toDestinationImage:destinationImage withChangeEffect:changeEffect];
+        [self prepareEffectForSourceImage:sourceImage destinationImage:destinationImage withChangeEffect:changeEffect];
+        [changeEffect startForward];
     } else {
         [super pushViewController:viewController animated:YES];
     }
@@ -75,7 +76,8 @@
         result = [super popViewControllerAnimated:NO];
         UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
 
-        [self changeFromSourceImage:sourceImage toDestinationImage:destinationImage withChangeEffect:changeEffect];
+        [self prepareEffectForSourceImage:sourceImage destinationImage:destinationImage withChangeEffect:changeEffect];
+        [changeEffect startBackward];
     } else {
         result = [super popViewControllerAnimated:NO];
     }
@@ -99,7 +101,8 @@
         result = [super popToRootViewControllerAnimated:NO];
         UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
 
-        [self changeFromSourceImage:sourceImage toDestinationImage:destinationImage withChangeEffect:changeEffect];
+        [self prepareEffectForSourceImage:sourceImage destinationImage:destinationImage withChangeEffect:changeEffect];
+        [changeEffect startBackward];
     } else {
         result = [super popToRootViewControllerAnimated:NO];
     }
@@ -125,21 +128,19 @@
         result = [super popToViewController:viewController animated:NO];
         UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
 
-        [self changeFromSourceImage:sourceImage toDestinationImage:destinationImage withChangeEffect:changeEffect];
+        [self prepareEffectForSourceImage:sourceImage destinationImage:destinationImage withChangeEffect:changeEffect];
+        [changeEffect startBackward];
     } else {
         result = [super popToViewController:viewController animated:NO];
     }
     return result;
 }
 
-- (void)changeFromSourceImage:(UIImage *)sourceImage
-           toDestinationImage:(UIImage *)destinationImage
-             withChangeEffect:(ASPushEffect *)changeEffect
+- (void)prepareEffectForSourceImage:(UIImage *)sourceImage
+                   destinationImage:(UIImage *)destinationImage
+                   withChangeEffect:(ASPushEffect *)changeEffect
 {
-    CGRect viewFrame = self.view.frame;
-    CGRect processViewFrame = [self.view convertRect:viewFrame fromView:self.view.superview];
-    UIView *processView = [[UIView alloc] initWithFrame:processViewFrame];
-    [self.view addSubview:processView];
+    [self prepareProcessView:changeEffect];
 
     changeEffect.sourceImage = sourceImage;
     changeEffect.destinationImage = destinationImage;
@@ -147,8 +148,15 @@
     changeEffect.completionBlock = ^() {
         [effect.processView removeFromSuperview];
     };
+}
+
+- (void)prepareProcessView:(ASPushEffect *)changeEffect {
+    CGRect viewFrame = self.view.frame;
+    CGRect processViewFrame = [self.view convertRect:viewFrame fromView:self.view.superview];
+    UIView *processView = [[UIView alloc] initWithFrame:processViewFrame];
+    [self.view addSubview:processView];
+
     changeEffect.processView = processView;
-    [changeEffect start];
 }
 
 - (UIImage *)screenshot:(UIView *)view {

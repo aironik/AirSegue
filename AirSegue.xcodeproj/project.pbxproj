@@ -12,6 +12,7 @@
 		00B114AB16DD4428008B382A /* ASEffectListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00B114AA16DD4428008B382A /* ASEffectListViewController.xib */; };
 		C4E3E08BAD0BBCD84BE05AFA /* AirSegueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E4D1F9286FA3288FD56E /* AirSegueTests.m */; };
 		C4E3E0F8C8B3E413D6C438C1 /* ASPushEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E663A97A80313549893D /* ASPushEffect.m */; };
+		C4E3E134B53DB79BD2CE56FC /* ASRibbonChangeEffectRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E0C6B269582F07EDC64E /* ASRibbonChangeEffectRenderer.mm */; };
 		C4E3E16FD266E846DBEE4F5A /* ASImageChangerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E0735E52725B3BA9EE3D /* ASImageChangerViewController.m */; };
 		C4E3E1A67C1FE96FD858DFFF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E5F91046BBAE384A74D5 /* Default-568h@2x.png */; };
 		C4E3E20DACDBA8C4FF621809 /* ASRibbonSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EABA9A22FA512550FB1C /* ASRibbonSettingsViewController.m */; };
@@ -59,6 +60,7 @@
 		C4E3E02A3D0DE9F27E56677A /* AirSegueTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "AirSegueTests-Info.plist"; sourceTree = "<group>"; };
 		C4E3E0735E52725B3BA9EE3D /* ASImageChangerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASImageChangerViewController.m; sourceTree = "<group>"; };
 		C4E3E0A2664C091C79672209 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C4E3E0C6B269582F07EDC64E /* ASRibbonChangeEffectRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASRibbonChangeEffectRenderer.mm; sourceTree = "<group>"; };
 		C4E3E0FEDFC4A35D6870137F /* ASRibbonPushEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRibbonPushEffect.h; sourceTree = "<group>"; };
 		C4E3E11B48CEFCDD4B5A41EE /* AirSegue-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "AirSegue-Info.plist"; sourceTree = "<group>"; };
 		C4E3E1C25D0F2D7C64B95900 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -69,6 +71,7 @@
 		C4E3E3AA9F6799A13DB4F053 /* ASChangeEffectRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASChangeEffectRenderer.mm; sourceTree = "<group>"; };
 		C4E3E45BD312CFF625CACED2 /* ASFadePushEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFadePushEffect.h; sourceTree = "<group>"; };
 		C4E3E4752F80D9CF7329EC2A /* destinationImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = destinationImage.png; sourceTree = "<group>"; };
+		C4E3E48F46F407D001E4C484 /* ASChangeEffectRenderer+CppProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASChangeEffectRenderer+CppProtected.h"; sourceTree = "<group>"; };
 		C4E3E4D1F9286FA3288FD56E /* AirSegueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirSegueTests.m; sourceTree = "<group>"; };
 		C4E3E5559D991F98A3F2BD52 /* Surface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Surface.mm; sourceTree = "<group>"; };
 		C4E3E5F91046BBAE384A74D5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 		C4E3EB02630C59CDB47BB488 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C4E3EB2A45D82B90B63A8E71 /* ASRibbonPushEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASRibbonPushEffect.m; sourceTree = "<group>"; };
 		C4E3EB9F7A4EB3908F168CEA /* ASEffectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASEffectListViewController.h; sourceTree = "<group>"; };
+		C4E3EBB4EA61A8B0F708B7AA /* ASRibbonChangeEffectRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRibbonChangeEffectRenderer.h; sourceTree = "<group>"; };
 		C4E3EC9332C288F133F6DEAC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C4E3ED30366310D40C0E4F33 /* ASEffectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASEffectListViewController.m; sourceTree = "<group>"; };
 		C4E3EDD57836A33961E162A6 /* AirSegueTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirSegueTests.h; sourceTree = "<group>"; };
@@ -247,11 +251,14 @@
 		C4E3ED66CCEB1A08E0D05B40 /* ImageChanger */ = {
 			isa = PBXGroup;
 			children = (
+				C4E3E432355D535BEEA0FACD /* Effects */,
 				C4E3E279B96D100707971A1D /* ASImageChangerViewController.h */,
 				C4E3E0735E52725B3BA9EE3D /* ASImageChangerViewController.m */,
 				C4E3EE2425EE566F32EB7A3E /* ASChangeEffectRenderer.h */,
+				C4E3E48F46F407D001E4C484 /* ASChangeEffectRenderer+CppProtected.h */,
 				C4E3E3AA9F6799A13DB4F053 /* ASChangeEffectRenderer.mm */,
-				C4E3E432355D535BEEA0FACD /* Effects */,
+				C4E3EBB4EA61A8B0F708B7AA /* ASRibbonChangeEffectRenderer.h */,
+				C4E3E0C6B269582F07EDC64E /* ASRibbonChangeEffectRenderer.mm */,
 			);
 			path = ImageChanger;
 			sourceTree = "<group>";
@@ -272,8 +279,8 @@
 				C4E3E663A97A80313549893D /* ASPushEffect.m */,
 				C4E3E0FEDFC4A35D6870137F /* ASRibbonPushEffect.h */,
 				C4E3EB2A45D82B90B63A8E71 /* ASRibbonPushEffect.m */,
-				C4E3E7D71AFAEA527852D52A /* ASFadePushEffect.m */,
 				C4E3E45BD312CFF625CACED2 /* ASFadePushEffect.h */,
+				C4E3E7D71AFAEA527852D52A /* ASFadePushEffect.m */,
 			);
 			path = PushEffect;
 			sourceTree = "<group>";
@@ -401,6 +408,7 @@
 				C4E3EBC5F3FED4D2118D4B43 /* ASRibbonPushEffect.m in Sources */,
 				C4E3EDE34D4A9E92FCE6A7A8 /* ASFadePushEffect.m in Sources */,
 				C4E3E20DACDBA8C4FF621809 /* ASRibbonSettingsViewController.m in Sources */,
+				C4E3E134B53DB79BD2CE56FC /* ASRibbonChangeEffectRenderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

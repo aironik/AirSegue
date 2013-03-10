@@ -14,6 +14,7 @@
 
 #import "ASNavigationController.h"
 #import "ASRibbonPushEffect.h"
+#import "ASRibbonSettingsViewController.h"
 #import "ASTestStandViewController.h"
 
 
@@ -168,8 +169,7 @@ enum {
 }
 
 - (void)showRibbonEffect1 {
-    // TODO: push ribbon effect settings view controller
-    UIViewController *vc = [[UIViewController alloc] init];
+    ASRibbonSettingsViewController *vc = [[ASRibbonSettingsViewController alloc] initWithNibName:nil bundle:nil];
     ASRibbonPushEffect *pushEffect = [ASRibbonPushEffect effect];
     [(ASNavigationController *)self.navigationController pushViewController:vc
                                                             withChangeEffect:pushEffect];

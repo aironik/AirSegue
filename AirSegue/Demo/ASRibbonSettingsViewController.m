@@ -11,6 +11,7 @@
 #endif
 
 #import "ASRibbonSettingsViewController.h"
+#import "ASRibbonPushEffect.h"
 
 
 @interface ASRibbonSettingsViewController ()
@@ -18,7 +19,8 @@
 @property (nonatomic, weak) IBOutlet UISlider *durationSlider;
 @property (nonatomic, weak) IBOutlet UILabel *durationLabel;
 
-- (IBAction)durationSliderChanger:(UISlider *)slider;
+@property (nonatomic, weak) IBOutlet UISlider *pneumocushionSlider;
+@property (nonatomic, weak) IBOutlet UILabel *pneumocushionLabel;
 
 @end
 
@@ -37,17 +39,38 @@ static NSTimeInterval duration = 1.0;
     duration = value;
 }
 
-- (IBAction)durationSliderChanger:(UISlider *)slider {
+static float pneumocushion = 0.02f;
+
++ (float)pneumocushion {
+    return pneumocushion;
+}
+
++ (void)setPneumocushion:(float)value {
+    pneumocushion = value;
+}
+
+- (IBAction)durationSliderChanged:(UISlider *)slider {
     [[self class] setDuration:slider.value];
     UILabel *label = self.durationLabel;
     label.text = [NSString stringWithFormat:@"%1.1f", slider.value];
 }
 
+- (IBAction)pneumocushionSliderChanged:(UISlider *)slider {
+    [[self class] setPneumocushion:slider.value];
+    UILabel *label = self.pneumocushionLabel;
+    label.text = [NSString stringWithFormat:@"%1.2f", slider.value];
+}
+
 - (void)viewDidLoad {
-    UILabel *label = self.durationLabel;
-    label.text = [NSString stringWithFormat:@"%1.1f", [[self class] duration]];
-    UISlider *slider = self.durationSlider;
-    slider.value = [[self class] duration];
+    [super viewDidLoad];
+
+    UISlider *durationSlider = self.durationSlider;
+    durationSlider.value = [[self class] duration];
+    [self durationSliderChanged:durationSlider];
+
+    UISlider *pneumocushionSlider = self.pneumocushionSlider;
+    pneumocushionSlider.value = [[self class] pneumocushion];
+    [self pneumocushionSliderChanged:pneumocushionSlider];
 }
 
 @end

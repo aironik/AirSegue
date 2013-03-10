@@ -11,5 +11,6 @@
 @interface ASRibbonSettingsViewController : UIViewController
 
 + (NSTimeInterval)duration;
++ (float)pneumocushion;
 
 @end

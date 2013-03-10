@@ -48,9 +48,14 @@
 
 - (void)pushViewController:(UIViewController *)viewController withChangeEffect:(ASPushEffect *)changeEffect {
     if (changeEffect) {
+        [self prepareProcessView:changeEffect];
+
         UIImage *sourceImage = [self screenshot:self.visibleViewController.view];
         [super pushViewController:viewController animated:NO];
-        UIImage *destinationImage = [self screenshot:viewController.view];
+        [self.view layoutIfNeeded];
+        [self.visibleViewController.view setNeedsLayout];
+        [self.visibleViewController.view layoutIfNeeded];
+        UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
 
         [self prepareEffectForSourceImage:sourceImage destinationImage:destinationImage withChangeEffect:changeEffect];
         [changeEffect startForward];
@@ -72,8 +77,13 @@
 - (UIViewController *)popViewControllerWithChangeEffect:(ASPushEffect *)changeEffect {
     UIViewController *result = nil;
     if (changeEffect) {
+        [self prepareProcessView:changeEffect];
+
         UIImage *sourceImage = [self screenshot:self.visibleViewController.view];
         result = [super popViewControllerAnimated:NO];
+        [self.view layoutIfNeeded];
+        [self.visibleViewController.view setNeedsLayout];
+        [self.visibleViewController.view layoutIfNeeded];
         UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
 
         [self prepareEffectForSourceImage:destinationImage destinationImage:sourceImage withChangeEffect:changeEffect];
@@ -97,8 +107,13 @@
 - (NSArray *)popToRootViewControllerWithChangeEffect:(ASPushEffect *)changeEffect {
     NSArray *result = nil;
     if (changeEffect) {
+        [self prepareProcessView:changeEffect];
+
         UIImage *sourceImage = [self screenshot:self.visibleViewController.view];
         result = [super popToRootViewControllerAnimated:NO];
+        [self.view layoutIfNeeded];
+        [self.visibleViewController.view setNeedsLayout];
+        [self.visibleViewController.view layoutIfNeeded];
         UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
 
         [self prepareEffectForSourceImage:destinationImage destinationImage:sourceImage withChangeEffect:changeEffect];
@@ -124,8 +139,13 @@
 {
     NSArray *result = nil;
     if (changeEffect) {
+        [self prepareProcessView:changeEffect];
+
         UIImage *sourceImage = [self screenshot:self.visibleViewController.view];
         result = [super popToViewController:viewController animated:NO];
+        [self.view layoutIfNeeded];
+        [self.visibleViewController.view setNeedsLayout];
+        [self.visibleViewController.view layoutIfNeeded];
         UIImage *destinationImage = [self screenshot:self.visibleViewController.view];
 
         [self prepareEffectForSourceImage:destinationImage destinationImage:sourceImage withChangeEffect:changeEffect];
@@ -140,8 +160,6 @@
                    destinationImage:(UIImage *)destinationImage
                    withChangeEffect:(ASPushEffect *)changeEffect
 {
-    [self prepareProcessView:changeEffect];
-
     changeEffect.sourceImage = sourceImage;
     changeEffect.destinationImage = destinationImage;
     __strong ASPushEffect *effect = changeEffect;     //< change effect should live while animating (should be string ref)
@@ -151,8 +169,8 @@
 }
 
 - (void)prepareProcessView:(ASPushEffect *)changeEffect {
-    CGRect viewFrame = self.view.frame;
-    CGRect processViewFrame = [self.view convertRect:viewFrame fromView:self.view.superview];
+    UIView *view = self.visibleViewController.view;
+    CGRect processViewFrame = [view.superview convertRect:view.frame toView:self.view];
     UIView *processView = [[UIView alloc] initWithFrame:processViewFrame];
     [self.view addSubview:processView];
 

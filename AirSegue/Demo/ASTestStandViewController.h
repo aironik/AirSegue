@@ -15,14 +15,10 @@
 
 @property (nonatomic, strong) IBOutlet ASImageChangerViewController *imageChanger;
 @property (nonatomic, weak) IBOutlet UISlider *valueSlider;
-@property (nonatomic, weak) IBOutlet UISlider *xAngleSlider;
-@property (nonatomic, weak) IBOutlet UISlider *yAngleSlider;
-@property (nonatomic, weak) IBOutlet UISlider *zAngleSlider;
+@property (nonatomic, weak) IBOutlet UISlider *pneumocushionSlider;
 
 - (IBAction)change:(id)sender;
 - (IBAction)sliderValueDidChange:(UISlider *)sender;
-- (IBAction)sliderXAngleDidChange:(UISlider *)sender;
-- (IBAction)sliderYAngleDidChange:(UISlider *)sender;
-- (IBAction)sliderZAngleDidChange:(UISlider *)sender;
+- (IBAction)sliderPneumocushionDidChange:(UISlider *)sender;
 
 @end

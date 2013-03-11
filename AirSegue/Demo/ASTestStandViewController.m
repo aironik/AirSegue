@@ -47,16 +47,9 @@
     self.imageChanger.timeIntervalFromStart = sender.value;
 }
 
-- (IBAction)sliderXAngleDidChange:(UISlider *)sender {
-
-}
-
-- (IBAction)sliderYAngleDidChange:(UISlider *)sender {
-
-}
-
-- (IBAction)sliderZAngleDidChange:(UISlider *)sender {
-
+- (IBAction)sliderPneumocushionDidChange:(UISlider *)sender {
+    ((ASRibbonChangeEffectRenderer *)self.imageChanger.sourceRenderer).pneumocushion = sender.value;
+    ((ASRibbonChangeEffectRenderer *)self.imageChanger.destinationRenderer).pneumocushion = sender.value;
 }
 
 

@@ -1,5 +1,5 @@
 //
-//  ASTestStandViewController.h
+//  ASDTestStandViewController.h
 //  AirSegue
 //
 //  Created by Oleg Lobachev  (aironik@gmail.com) on 07.02.2013.
@@ -11,7 +11,7 @@
 @class ASImageChangerViewController;
 
 
-@interface ASTestStandViewController : UIViewController
+@interface ASDTestStandViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet ASImageChangerViewController *imageChanger;
 @property (nonatomic, weak) IBOutlet UISlider *valueSlider;

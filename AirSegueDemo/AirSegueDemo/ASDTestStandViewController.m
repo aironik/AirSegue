@@ -6,18 +6,17 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import "ASTestStandViewController.h"
+#import "ASDTestStandViewController.h"
 
-#import "ASImageChangerViewController.h"
-#import "ASRibbonChangeEffectRenderer.h"
+#import <AirSegue/AirSegue.h>
 
 
-@interface ASTestStandViewController ()
+@interface ASDTestStandViewController ()
 
 @end
 
 
-@implementation ASTestStandViewController
+@implementation ASDTestStandViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

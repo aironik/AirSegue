@@ -1,6 +1,6 @@
 //
-//  ASRibbonSettingsViewController.m
-//  AirSegue
+//  ASDRibbonSettingsViewController.m
+//  AirSegueDemo
 //
 //  Created by Oleg Lobachev  (aironik@gmail.com) on 10.03.2013.
 //  Copyright 2013 aironik. All rights reserved.
@@ -10,11 +10,10 @@
 #error ARC required. Add -fobjc-arc compiler flag for this file.
 #endif
 
-#import "ASRibbonSettingsViewController.h"
-#import "ASRibbonPushEffect.h"
+#import "ASDRibbonSettingsViewController.h"
 
 
-@interface ASRibbonSettingsViewController ()
+@interface ASDRibbonSettingsViewController ()
 
 @property (nonatomic, weak) IBOutlet UISlider *durationSlider;
 @property (nonatomic, weak) IBOutlet UILabel *durationLabel;
@@ -27,7 +26,7 @@
 
 #pragma mark - Implementation
 
-@implementation ASRibbonSettingsViewController
+@implementation ASDRibbonSettingsViewController
 
 static NSTimeInterval duration = 1.0;
 

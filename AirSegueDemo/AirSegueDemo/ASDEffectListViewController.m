@@ -1,6 +1,6 @@
 //
-//  ASEffectListViewController.m
-//  AirSegue
+//  ASDEffectListViewController.m
+//  AirSegueDemo
 //
 //  Created by Oleg Lobachev  (aironik@gmail.com) on 26.02.2013.
 //  Copyright 2013 aironik. All rights reserved.
@@ -10,12 +10,12 @@
 #error ARC required. Add -fobjc-arc compiler flag for this file.
 #endif
 
-#import "ASEffectListViewController.h"
+#import "ASDEffectListViewController.h"
 
-#import "ASNavigationController.h"
-#import "ASRibbonPushEffect.h"
-#import "ASRibbonSettingsViewController.h"
-#import "ASTestStandViewController.h"
+#import <AirSegue/AirSegue.h>
+
+#import "ASDRibbonSettingsViewController.h"
+#import "ASDTestStandViewController.h"
 
 
 enum {
@@ -32,14 +32,14 @@ enum {
 } ASEffectListViewControllerEffectDemos;
 
 
-@interface ASEffectListViewController ()
+@interface ASDEffectListViewController ()
 
 @end
 
 
 #pragma mark - Implementation
 
-@implementation ASEffectListViewController
+@implementation ASDEffectListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -169,15 +169,15 @@ enum {
 }
 
 - (void)showRibbonEffect1 {
-    ASRibbonSettingsViewController *vc = [[ASRibbonSettingsViewController alloc] initWithNibName:nil bundle:nil];
+    ASDRibbonSettingsViewController *vc = [[ASDRibbonSettingsViewController alloc] initWithNibName:nil bundle:nil];
     ASRibbonPushEffect *pushEffect = [ASRibbonPushEffect effect];
-    pushEffect.duration = [ASRibbonSettingsViewController duration];
+    pushEffect.duration = [ASDRibbonSettingsViewController duration];
     [(ASNavigationController *)self.navigationController pushViewController:vc
                                                             withChangeEffect:pushEffect];
 }
 
 - (void)startTestStandAtRow:(NSInteger)row {
-    ASTestStandViewController *vc = [[ASTestStandViewController alloc] initWithNibName:nil bundle:nil];
+    ASDTestStandViewController *vc = [[ASDTestStandViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -233,6 +233,7 @@
 						<string key="NSFrame">{{276, 177}, {24, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -936,7 +937,7 @@
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
-				<string key="-1.CustomClassName">ASRibbonSettingsViewController</string>
+				<string key="-1.CustomClassName">ASDRibbonSettingsViewController</string>
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -1023,19 +1024,8 @@
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
-					<string key="className">ASRibbonSettingsViewController</string>
+					<string key="className">ASDRibbonSettingsViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">durationSliderChanged:</string>
-						<string key="NS.object.0">UISlider</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">durationSliderChanged:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">durationSliderChanged:</string>
-							<string key="candidateClassName">UISlider</string>
-						</object>
-					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="durationLabel">UILabel</string>
 						<string key="durationSlider">UISlider</string>
@@ -1062,7 +1052,7 @@
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/ASRibbonSettingsViewController.h</string>
+						<string key="minorKey">./Classes/ASDRibbonSettingsViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

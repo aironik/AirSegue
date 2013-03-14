@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'AirSegueDemo' target in the 'AirSegueDemo' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <Availability.h>
+#endif

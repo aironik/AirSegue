@@ -17,6 +17,8 @@
 		00B1C55916F110CB00634C73 /* ASPushEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1C54A16F110CB00634C73 /* ASPushEffect.m */; };
 		00B1C55A16F110CB00634C73 /* ASRibbonPushEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1C54C16F110CB00634C73 /* ASRibbonPushEffect.m */; };
 		00D0062B16F1087A008919DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D0062A16F1087A008919DD /* Foundation.framework */; };
+		C4E3E5C4E43D759AB6582F33 /* ASRibbonPushSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E5AFD16018B5CA67E512 /* ASRibbonPushSegue.m */; };
+		C4E3E8FBE7977978C1201E2F /* ASRibbonPushSegue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4E3EE17FA9F9AB4FA5227E7 /* ASRibbonPushSegue.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +28,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				C4E3E8FBE7977978C1201E2F /* ASRibbonPushSegue.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +60,8 @@
 		00D0062716F1087A008919DD /* libAirSegue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAirSegue.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D0062A16F1087A008919DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00D0063816F10B29008919DD /* AirSegue-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AirSegue-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		C4E3E5AFD16018B5CA67E512 /* ASRibbonPushSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASRibbonPushSegue.m; path = Classes/ASRibbonPushSegue.m; sourceTree = "<group>"; };
+		C4E3EE17FA9F9AB4FA5227E7 /* ASRibbonPushSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRibbonPushSegue.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +81,7 @@
 			children = (
 				00B1C53616F110CB00634C73 /* ImageChanger */,
 				00B1C54416F110CB00634C73 /* NavigationControllers */,
+				C4E3E9D3078EB32FD5249432 /* Segue */,
 			);
 			path = Classes;
 			sourceTree = SOURCE_ROOT;
@@ -143,6 +149,7 @@
 				00B1C54F16F110CB00634C73 /* AirSegue.h */,
 				00B1C55016F110CB00634C73 /* ASImageChangerViewController.h */,
 				00B1C55116F110CB00634C73 /* ASNavigationController.h */,
+				C4E3EE17FA9F9AB4FA5227E7 /* ASRibbonPushSegue.h */,
 			);
 			path = AirSegue;
 			sourceTree = "<group>";
@@ -179,7 +186,7 @@
 				00B1C54D16F110CB00634C73 /* Headers */,
 				00D0062D16F1087A008919DD /* Supporting Files */,
 			);
-			path = AirSegue;
+			name = AirSegue;
 			sourceTree = "<group>";
 		};
 		00D0062D16F1087A008919DD /* Supporting Files */ = {
@@ -189,6 +196,14 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		C4E3E9D3078EB32FD5249432 /* Segue */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3E5AFD16018B5CA67E512 /* ASRibbonPushSegue.m */,
+			);
+			name = Segue;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -250,6 +265,7 @@
 				00B1C55816F110CB00634C73 /* ASFadePushEffect.m in Sources */,
 				00B1C55916F110CB00634C73 /* ASPushEffect.m in Sources */,
 				00B1C55A16F110CB00634C73 /* ASRibbonPushEffect.m in Sources */,
+				C4E3E5C4E43D759AB6582F33 /* ASRibbonPushSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +300,6 @@
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -315,7 +330,6 @@
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;

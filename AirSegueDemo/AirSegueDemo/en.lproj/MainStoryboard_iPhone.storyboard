@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Segue Effect List View Controller-->
         <scene sceneID="Teu-Ji-Ze3">
             <objects>
-                <tableViewController id="ejh-Rc-2Hg" sceneMemberID="viewController">
+                <tableViewController id="ejh-Rc-2Hg" customClass="ASDSegueEffectListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="91D-kh-7zk">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="EOa-Vk-aBi" kind="modal" identifier="ASNavigationControllerSegue" id="9DB-8p-sSo"/>
+                                            <segue destination="EOa-Vk-aBi" kind="modal" identifier="ASModalNavigationSegue" id="9DB-8p-sSo"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -56,15 +56,15 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="BNx-7l-CWi" kind="custom" identifier="RibbonPushSegue" customClass="ASRibbonPushSegue" id="Kdc-ai-vdT"/>
+                                            <segue destination="BNx-7l-CWi" kind="custom" identifier="ASRibbonPushSegue" customClass="ASRibbonPushSegue" id="Kdc-ai-vdT"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="ejh-Rc-2Hg" id="X5Z-G7-OFv"/>
-                            <outlet property="delegate" destination="ejh-Rc-2Hg" id="sLH-aH-sVP"/>
+                            <outlet property="dataSource" destination="ejh-Rc-2Hg" id="vd0-hk-UIT"/>
+                            <outlet property="delegate" destination="ejh-Rc-2Hg" id="Qga-aP-r3P"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="AFb-fp-Fc3"/>
@@ -219,13 +219,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="gq4-qh-81n">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="df8-zN-ZGs"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="df8-zN-ZGs">
+                            <connections>
+                                <segue destination="IAF-b0-F87" kind="unwind" unwindAction="unwindSegue:" id="NTp-NU-Wbp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="view" destination="hMG-el-7uM" id="ixj-a7-ptV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZX-3w-3lm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="IAF-b0-F87" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1674" y="-6"/>
         </scene>
@@ -252,10 +257,18 @@
         <class className="ASDRibbonSettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ASDRibbonSettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="durationSliderChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="pneumocushionSliderChanged:" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="durationSlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="pneumocushionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="pneumocushionSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="ASDSegueEffectListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ASDSegueEffectListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="unwindSegue:" candidateClass="UIStoryboardSegue"/>
             </relationships>
         </class>
         <class className="ASNavigationController" superclassName="UINavigationController">
@@ -263,6 +276,9 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

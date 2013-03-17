@@ -28,6 +28,7 @@
 		00B1C58116F112B600634C73 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00B1C57F16F112B600634C73 /* MainStoryboard_iPhone.storyboard */; };
 		00B1C59416F114DC00634C73 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1C59316F114DC00634C73 /* GLKit.framework */; };
 		00B1C59616F114E300634C73 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1C59516F114E300634C73 /* OpenGLES.framework */; };
+		C4E3E07E7A0132CCA0B62B1A /* ASDSegueEffectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3ED07D60017B11CEA3C7A /* ASDSegueEffectListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		00B1C58016F112B600634C73 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		00B1C59316F114DC00634C73 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		00B1C59516F114E300634C73 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		C4E3ED07D60017B11CEA3C7A /* ASDSegueEffectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDSegueEffectListViewController.m; sourceTree = "<group>"; };
+		C4E3EE3B90B1EF509A56DFFD /* ASDSegueEffectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDSegueEffectListViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 				008A801816F11AC300C09EB2 /* ASDRibbonSettingsViewController.h */,
 				008A801916F11AC300C09EB2 /* ASDRibbonSettingsViewController.m */,
 				008A808416F2337E00C09EB2 /* ASDRibbonSettingsViewController.xib */,
+				C4E3EE3B90B1EF509A56DFFD /* ASDSegueEffectListViewController.h */,
+				C4E3ED07D60017B11CEA3C7A /* ASDSegueEffectListViewController.m */,
 				008A802016F1ADB100C09EB2 /* ASDTestStandViewController.h */,
 				008A802116F1ADB100C09EB2 /* ASDTestStandViewController.m */,
 				008A808816F233CF00C09EB2 /* ASDTestStandViewController.xib */,
@@ -271,6 +276,7 @@
 				008A801716F119CA00C09EB2 /* ASDEffectListViewController.m in Sources */,
 				008A801A16F11AC300C09EB2 /* ASDRibbonSettingsViewController.m in Sources */,
 				008A802216F1ADB200C09EB2 /* ASDTestStandViewController.m in Sources */,
+				C4E3E07E7A0132CCA0B62B1A /* ASDSegueEffectListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +353,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ../AirSegue/Headers;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-all_load",
@@ -377,7 +383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ../AirSegue/Headers;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-lstdc++",

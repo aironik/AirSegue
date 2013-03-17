@@ -11,7 +11,6 @@
 #endif
 
 #import "ASRibbonPushSegue.h"
-#import <UIKit/UIKit.h>
 
 
 @interface ASRibbonPushSegue ()

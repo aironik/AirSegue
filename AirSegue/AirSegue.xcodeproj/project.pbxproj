@@ -17,8 +17,11 @@
 		00B1C55916F110CB00634C73 /* ASPushEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1C54A16F110CB00634C73 /* ASPushEffect.m */; };
 		00B1C55A16F110CB00634C73 /* ASRibbonPushEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1C54C16F110CB00634C73 /* ASRibbonPushEffect.m */; };
 		00D0062B16F1087A008919DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D0062A16F1087A008919DD /* Foundation.framework */; };
+		C4E3E4DE978D4C9BD5E8BF99 /* ASFeaturesDefinitions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4E3E26C968A0D511AE0CA18 /* ASFeaturesDefinitions.h */; };
 		C4E3E5C4E43D759AB6582F33 /* ASRibbonPushSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E5AFD16018B5CA67E512 /* ASRibbonPushSegue.m */; };
+		C4E3E6A3D189F108AC1E877F /* ASPushSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E67650293649B0D9A2D4 /* ASPushSegue.m */; };
 		C4E3E8FBE7977978C1201E2F /* ASRibbonPushSegue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4E3EE17FA9F9AB4FA5227E7 /* ASRibbonPushSegue.h */; };
+		C4E3ED4B21E05B04654FC3E4 /* ASPushSegue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4E3E7A621368E037D38A511 /* ASPushSegue.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +32,8 @@
 			dstSubfolderSpec = 16;
 			files = (
 				C4E3E8FBE7977978C1201E2F /* ASRibbonPushSegue.h in CopyFiles */,
+				C4E3ED4B21E05B04654FC3E4 /* ASPushSegue.h in CopyFiles */,
+				C4E3E4DE978D4C9BD5E8BF99 /* ASFeaturesDefinitions.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,7 +65,10 @@
 		00D0062716F1087A008919DD /* libAirSegue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAirSegue.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D0062A16F1087A008919DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00D0063816F10B29008919DD /* AirSegue-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AirSegue-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		C4E3E26C968A0D511AE0CA18 /* ASFeaturesDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFeaturesDefinitions.h; sourceTree = "<group>"; };
 		C4E3E5AFD16018B5CA67E512 /* ASRibbonPushSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASRibbonPushSegue.m; path = Classes/ASRibbonPushSegue.m; sourceTree = "<group>"; };
+		C4E3E67650293649B0D9A2D4 /* ASPushSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASPushSegue.m; path = Classes/ASPushSegue.m; sourceTree = "<group>"; };
+		C4E3E7A621368E037D38A511 /* ASPushSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPushSegue.h; sourceTree = "<group>"; };
 		C4E3EE17FA9F9AB4FA5227E7 /* ASRibbonPushSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRibbonPushSegue.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,7 +157,9 @@
 				00B1C54F16F110CB00634C73 /* AirSegue.h */,
 				00B1C55016F110CB00634C73 /* ASImageChangerViewController.h */,
 				00B1C55116F110CB00634C73 /* ASNavigationController.h */,
+				C4E3E7A621368E037D38A511 /* ASPushSegue.h */,
 				C4E3EE17FA9F9AB4FA5227E7 /* ASRibbonPushSegue.h */,
+				C4E3E26C968A0D511AE0CA18 /* ASFeaturesDefinitions.h */,
 			);
 			path = AirSegue;
 			sourceTree = "<group>";
@@ -201,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				C4E3E5AFD16018B5CA67E512 /* ASRibbonPushSegue.m */,
+				C4E3E67650293649B0D9A2D4 /* ASPushSegue.m */,
 			);
 			name = Segue;
 			sourceTree = SOURCE_ROOT;
@@ -266,6 +277,7 @@
 				00B1C55916F110CB00634C73 /* ASPushEffect.m in Sources */,
 				00B1C55A16F110CB00634C73 /* ASRibbonPushEffect.m in Sources */,
 				C4E3E5C4E43D759AB6582F33 /* ASRibbonPushSegue.m in Sources */,
+				C4E3E6A3D189F108AC1E877F /* ASPushSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +314,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
@@ -332,7 +344,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				VALIDATE_PRODUCT = YES;

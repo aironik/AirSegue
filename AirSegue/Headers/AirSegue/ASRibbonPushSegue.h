@@ -7,6 +7,9 @@
 //
 
 
-@interface ASRibbonPushSegue : UIStoryboardSegue
+#import "ASPushSegue.h"
+
+
+@interface ASRibbonPushSegue : ASPushSegue
 
 @end

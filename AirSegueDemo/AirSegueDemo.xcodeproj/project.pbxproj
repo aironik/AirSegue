@@ -402,6 +402,7 @@
 				GCC_PREFIX_HEADER = "AirSegueDemo/AirSegueDemo-Prefix.pch";
 				INFOPLIST_FILE = "AirSegueDemo/AirSegueDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -413,6 +414,7 @@
 				GCC_PREFIX_HEADER = "AirSegueDemo/AirSegueDemo-Prefix.pch";
 				INFOPLIST_FILE = "AirSegueDemo/AirSegueDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

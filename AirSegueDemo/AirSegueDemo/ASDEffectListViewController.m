@@ -44,7 +44,7 @@ enum {
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    ASRibbonPushEffect *defaultPushEffect = [ASRibbonPushEffect effect];
+    ASRibbonPushEffect *defaultPushEffect = [[ASRibbonPushEffect alloc] init];
     ASNavigationController *navigationController = (ASNavigationController *)self.navigationController;
     navigationController.pushEffect = defaultPushEffect;
 }
@@ -170,7 +170,7 @@ enum {
 
 - (void)showRibbonEffect1 {
     ASDRibbonSettingsViewController *vc = [[ASDRibbonSettingsViewController alloc] initWithNibName:nil bundle:nil];
-    ASRibbonPushEffect *pushEffect = [ASRibbonPushEffect effect];
+    ASRibbonPushEffect *pushEffect = [[ASRibbonPushEffect alloc] init];
     pushEffect.duration = [ASDRibbonSettingsViewController duration];
     [(ASNavigationController *)self.navigationController pushViewController:vc
                                                             withChangeEffect:pushEffect];

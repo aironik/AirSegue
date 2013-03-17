@@ -13,6 +13,4 @@
 
 @interface ASFadePushEffect : ASPushEffect
 
-+ (instancetype)effect;
-
 @end

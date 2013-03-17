@@ -13,6 +13,4 @@
 
 @property (nonatomic, assign) float pneumocushion;
 
-+ (instancetype)effect;
-
 @end

@@ -16,13 +16,14 @@
 #endif // HAVE_SYSTEM_SEGUE_FEATURE
 
 #ifndef HAVE_SYSTEM_SEGUE_FEATURE
-@property (nonatomic, strong, readonly) UIViewController *sourceViewController;
-@property (nonatomic, strong, readonly) UIViewController *destinationViewController;
+@property (nonatomic, strong, readonly) id sourceViewController;
+@property (nonatomic, strong, readonly) id destinationViewController;
 @property (nonatomic, strong, readonly) NSString *identifier;
 #endif // HAVE_SYSTEM_SEGUE_FEATURE
 
 /// @brief Flag define forward (push) if YES or backward (unwind or pop) if NO direction.
 @property (nonatomic, assign) BOOL unwind;
+@property (nonatomic, copy) NSString *effectName;
 
 - (id)initWithIdentifier:(NSString *)identifier
                   source:(UIViewController *)source

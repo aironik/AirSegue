@@ -31,10 +31,11 @@ static const NSTimeInterval kASRibbonPushEffectDuration = 1.0;
 
 @dynamic pneumocushion;
 
-+ (instancetype)effect {
-    ASRibbonPushEffect *result = [[self alloc] init];
-    result.duration = kASRibbonPushEffectDuration;
-    return result;
+- (id)init {
+    if (self = [super init]) {
+        self.duration = kASRibbonPushEffectDuration;
+    }
+    return self;
 }
 
 - (void)start {

@@ -22,11 +22,6 @@
 
 @implementation ASFadePushEffect
 
-+ (instancetype)effect {
-    ASFadePushEffect *result = [[self alloc] init];
-    return result;
-}
-
 - (void)startWithSourceImage:(UIImage *)sourceImage destinationImage:(UIImage *)destinationImage {
     UIImageView *sourceImageView = [[UIImageView alloc] initWithImage:sourceImage];
     UIImageView *destinationImageView = [[UIImageView alloc] initWithImage:destinationImage];

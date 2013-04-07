@@ -34,21 +34,10 @@ float kASChangeEffectRendererProgressEnd = Surfaces::Surface::END_PROGRESS;
     return nil;
 }
 
-- (id)initWithSurface:(Surfaces::Surface *)surface role:(ASChangeEffectRendererRole)role {
+- (id)initWithSurface:(Surfaces::Surface *)surface role:(ASRendererRole)role {
     if (self = [super init]) {
         _surface = surface;
-        _role = role;
-        switch (role) {
-            case ASChangeEffectRendererRoleSource:
-                _surface->setRole(Surfaces::Surface::ROLE_SOURCE);
-                break;
-            case ASChangeEffectRendererRoleDestination:
-                _surface->setRole(Surfaces::Surface::ROLE_TARGET);
-                break;
-            default:
-                NSAssert(NO, @"Unknown role type.");
-                break;
-        }
+        [self setRole:role];
     } else {
         delete surface;
     }
@@ -57,6 +46,36 @@ float kASChangeEffectRendererProgressEnd = Surfaces::Surface::END_PROGRESS;
 
 - (void)dealloc {
     delete _surface;
+}
+
+- (ASRendererRole)role {
+    ASRendererRole result = ASRendererRoleSource;
+    switch (_surface->getRole()) {
+        default:
+            NSAssert(NO, @"Unknown role type.");
+            // No break.
+        case Surfaces::Surface::ROLE_SOURCE:
+            result = ASRendererRoleSource;
+            break;
+        case Surfaces::Surface::ROLE_TARGET:
+            result = ASRendererRoleDestination;
+            break;
+    }
+    return result;
+}
+
+- (void)setRole:(ASRendererRole)role {
+    switch (role) {
+        default:
+            NSAssert(NO, @"Unknown role type.");
+            // No break.
+        case ASRendererRoleSource:
+            _surface->setRole(Surfaces::Surface::ROLE_SOURCE);
+            break;
+        case ASRendererRoleDestination:
+            _surface->setRole(Surfaces::Surface::ROLE_TARGET);
+            break;
+    }
 }
 
 - (void)setProgress:(float)progress {

@@ -6,24 +6,44 @@
 //  Copyright 2013 aironik. All rights reserved.
 //
 
+#import <AirSegue/ASEffectKind.h>
+
+
 @class ASPushEffect;
 
 
-/// @brief The ASNavigationController class implements change views effects.
+/// @brief The navigation controller extends UIViewController functionality and let select push and pop animation.
 @interface ASNavigationController : UINavigationController
 
-/// @brief Views change effect. If nil use default UINavigationController push/pop effect.
-@property (nonatomic, strong) ASPushEffect *pushEffect;
+/// @brief Views change animation effect.
+@property (nonatomic, assign) ASEffectKind effectKind;
 
-- (id)initWithRootViewController:(UIViewController *)rootViewController;
-
+/// @brief Pushes a view controller onto the receiver's stack using effectKind property for animation effect.
+/// @see effectKind
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated;
-- (void)pushViewController:(UIViewController *)viewController withChangeEffect:(ASPushEffect *)changeEffect;
+
+/// @brief Pushes a view controller onto the receiver's stack using effectKind animation effect.
+- (void)pushViewController:(UIViewController *)viewController withEffectKind:(ASEffectKind)effectKind;
+
+/// @brief Pops top view controller from navigation stack using effectKind property for animation effect.
+/// @see effectKind
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated;
-- (UIViewController *)popViewControllerWithChangeEffect:(ASPushEffect *)changeEffect;
+
+/// @brief Pops top view controller from navigation stack using effectKind for animation effect.
+- (UIViewController *)popViewControllerWithEffectKind:(ASEffectKind)effectKind;
+
+/// @brief Pops all view controller on the stack except root view controller using effectKind property for animation effect.
+/// @see effectKind
 - (NSArray *)popToRootViewControllerAnimated:(BOOL)animated;
-- (NSArray *)popToRootViewControllerWithChangeEffect:(ASPushEffect *)changeEffect;
+
+/// @brief Pops all view controller on the stack except root view controller using effectKind for animation effect.
+- (NSArray *)popToRootViewControllerWithEffectKind:(ASEffectKind)effectKind;
+
+/// @brief Pops view controller until specified view controller began top using effectKind property for animation effect.
+/// @see effectKind
 - (NSArray *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated;
-- (NSArray *)popToViewController:(UIViewController *)viewController withChangeEffect:(ASPushEffect *)changeEffect;
+
+/// @brief Pops view controller until specified view controller began top using effectKind for animation effect.
+- (NSArray *)popToViewController:(UIViewController *)viewController withEffectKind:(ASEffectKind)effectKind;
 
 @end

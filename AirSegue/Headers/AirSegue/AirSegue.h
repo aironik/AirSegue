@@ -6,11 +6,8 @@
 //  Copyright 2013 aironik. All rights reserved.
 //
 
+#import <AirSegue/ASEffectKind.h>
 #import <AirSegue/ASFeaturesDefinitions.h>
 #import <AirSegue/ASImageChangerViewController.h>
 #import <AirSegue/ASNavigationController.h>
 #import <AirSegue/ASPushSegue.h>
-#import <AirSegue/ASRibbonPushSegue.h>
-
-#import <AirSegue/../../Classes/ImageChanger/ASRibbonChangeEffectRenderer.h>
-#import <AirSegue/../../Classes/NavigationControllers/PushEffect/ASRibbonPushEffect.h>

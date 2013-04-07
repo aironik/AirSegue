@@ -29,7 +29,7 @@ static const NSTimeInterval kASRibbonPushEffectDuration = 1.0;
 
 @implementation ASRibbonPushEffect
 
-@dynamic pneumocushion;
+//@dynamic pneumocushion;
 
 - (id)init {
     if (self = [super init]) {
@@ -70,22 +70,25 @@ static const NSTimeInterval kASRibbonPushEffectDuration = 1.0;
 
 - (ASImageChangerViewController *)changer {
     if (!_changer) {
-        _changer = [[ASImageChangerViewController alloc] init];
-        _changer.effectClass = [ASRibbonChangeEffectRenderer class];
+        _changer = [[ASImageChangerViewController alloc] initWithEffectKind:self.kind];
     }
     return _changer;
 }
 
-- (float)pneumocushion {
-    ASRibbonChangeEffectRenderer *renderer = (ASRibbonChangeEffectRenderer *)self.changer.sourceRenderer;
-    return renderer.pneumocushion;
-}
+//- (float)pneumocushion {
+//    ASRibbonChangeEffectRenderer *renderer = (ASRibbonChangeEffectRenderer *)self.changer.sourceRenderer;
+//    return renderer.pneumocushion;
+//}
+//
+//- (void)setPneumocushion:(float)pneumocushion {
+//    ASRibbonChangeEffectRenderer *sourceRenderer = (ASRibbonChangeEffectRenderer *)self.changer.sourceRenderer;
+//    ASRibbonChangeEffectRenderer *destinationRenderer = (ASRibbonChangeEffectRenderer *)self.changer.destinationRenderer;
+//    sourceRenderer.pneumocushion = pneumocushion;
+//    destinationRenderer.pneumocushion = pneumocushion;
+//}
 
-- (void)setPneumocushion:(float)pneumocushion {
-    ASRibbonChangeEffectRenderer *sourceRenderer = (ASRibbonChangeEffectRenderer *)self.changer.sourceRenderer;
-    ASRibbonChangeEffectRenderer *destinationRenderer = (ASRibbonChangeEffectRenderer *)self.changer.destinationRenderer;
-    sourceRenderer.pneumocushion = pneumocushion;
-    destinationRenderer.pneumocushion = pneumocushion;
+- (ASEffectKind)kind {
+    return ASEffectKindRibbon;
 }
 
 @end

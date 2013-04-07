@@ -12,10 +12,16 @@
 
 #import "ASPushEffect.h"
 
+#import "ASFadePushEffect.h"
+#import "ASEffectKind.h"
+#import "ASRibbonPushEffect.h"
+
 
 static const NSTimeInterval kASPushEffectDuration = 0.3;
 
 @interface ASPushEffect ()
+
+@property (nonatomic, assign, readwrite) ASEffectKind kind;
 
 @end
 
@@ -24,7 +30,30 @@ static const NSTimeInterval kASPushEffectDuration = 0.3;
 
 @implementation ASPushEffect
 
++ (id)effectWithKind:(ASEffectKind)kind {
+    return [[self alloc] initWithKind:kind];
+}
+
+- (id)initWithKind:(ASEffectKind)kind {
+    ASPushEffect *result = nil;
+    switch (kind) {
+        default:
+            NSAssert1(NO, @"Unknown effect kind %d. Use ASEffectKindRibbon", kind);
+            // No break. Use default kind.
+        case ASEffectKindUndefined:
+        case ASEffectKindRibbon:
+            result = [[ASRibbonPushEffect alloc] init];
+            break;
+        case ASEffectKindFade:
+            result = [[ASFadePushEffect alloc] init];
+            break;
+    }
+    result.kind = kind;
+    return result;
+}
+
 - (id)init {
+    NSAssert([self class] != [ASPushEffect class], @"Impropper push effect initializing. Use -initWithKind: instead.");
     if (self = [super init]) {
         _duration = kASPushEffectDuration;
     }

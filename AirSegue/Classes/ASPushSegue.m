@@ -14,12 +14,11 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#import "ASEffectKind.h"
 #import "ASPushEffect.h"
 
 
 @interface ASPushSegue ()
-
-@property (nonatomic, strong) ASPushEffect *effect;
 
 @end
 
@@ -28,22 +27,18 @@
 
 @implementation ASPushSegue
 
-#ifdef HAVE_SYSTEM_SEGUE_FEATURE
-@dynamic sourceViewController;
-@dynamic destinationViewController;
-@dynamic identifier;
-#else // !HAVE_SYSTEM_SEGUE_FEATURE
+#if !(defined HAVE_SYSTEM_SEGUE_FEATURE)
 @synthesize sourceViewController = _sourceViewController;
 @synthesize destinationViewController = _destinationViewController;
 @synthesize identifier = _identifier;
-#endif // HAVE_SYSTEM_SEGUE_FEATURE
+#endif // !defined HAVE_SYSTEM_SEGUE_FEATURE
 
 
 - (id)initWithIdentifier:(NSString *)identifier
                   source:(UIViewController *)source
              destination:(UIViewController *)destination
 {
-#ifdef HAVE_SYSTEM_SEGUE_FEATURE
+#if (defined HAVE_SYSTEM_SEGUE_FEATURE)
     if (self = [super initWithIdentifier:identifier source:source destination:destination]) {
 #else // !HAVE_SYSTEM_SEGUE_FEATURE
     if (self = [super init]) {
@@ -52,7 +47,7 @@
         _destinationViewController = destination;
 #endif // HAVE_SYSTEM_SEGUE_FEATURE
 
-        _effectName = @"ASRibbonPushEffect";
+        _effectKing = ASEffectKindUndefined;
     }
     return self;
 }
@@ -64,33 +59,18 @@
     NSAssert(destinationViewController, @"ASPushSegue nothing to perform.");
     if (self.unwind) {
         [self startWithChangeBlock:^() {
-            [navigationController popToViewController:destinationViewController animated:YES];
+            [navigationController popToViewController:destinationViewController animated:NO];
         }];
     } else {
         [self startWithChangeBlock: ^() {
-            [navigationController pushViewController:destinationViewController animated:YES];
+            [navigationController pushViewController:destinationViewController animated:NO];
         }];
-    }
-}
-
-- (ASPushEffect *)effect {
-    if (!_effect) {
-        _effect = [[NSClassFromString(self.effectName) alloc] init];
-    }
-    return _effect;
-}
-
-- (void)setEffectName:(NSString *)effectName {
-    if (![_effectName isEqualToString:effectName]) {
-        _effectName = [effectName copy];
-        self.effect = nil;
     }
 }
 
 // @params changeBlock: NOT animated push or pop ([navigationController pushViewController:vc animated:NO]
 //      or [navigationController popViewControllerAnimated:NO])
 - (void)startWithChangeBlock:(void(^)())changeBlock {
-    [self prepareProcessView];
 
     UINavigationController *navigationController = [self.sourceViewController navigationController];
     UIImage *sourceImage = [self screenshot:navigationController.visibleViewController.view];
@@ -100,34 +80,41 @@
     [navigationController.visibleViewController.view layoutIfNeeded];
     UIImage *destinationImage = [self screenshot:navigationController.visibleViewController.view];
 
-    [self prepareEffectForSourceImage:sourceImage destinationImage:destinationImage];
+    [self startAnimationEffectWithSourceImage:sourceImage destinationImage:destinationImage];
+}
+
+- (void)startAnimationEffectWithSourceImage:(UIImage *)sourceImage destinationImage:(UIImage *)destinationImage {
+    ASPushEffect *effect = [self createEffectForSourceImage:sourceImage destinationImage:destinationImage];
+    __strong ASPushEffect *effectBlock = effect;
+    effect.completionBlock = ^() {
+        [effectBlock.processView removeFromSuperview];
+        effectBlock.completionBlock = nil;
+    };
     if (self.unwind) {
-        [self.effect startBackward];
+        [effect startBackward];
     } else {
-        [self.effect startForward];
+        [effect startForward];
     }
 }
 
-- (void)prepareEffectForSourceImage:(UIImage *)sourceImage
-                   destinationImage:(UIImage *)destinationImage
+- (ASPushEffect *)createEffectForSourceImage:(UIImage *)sourceImage
+                            destinationImage:(UIImage *)destinationImage
 {
-    self.effect.sourceImage = sourceImage;
-    self.effect.destinationImage = destinationImage;
-    __strong ASPushEffect *effect = self.effect;     //< change effect should live while animating (should be string ref)
-    self.effect.completionBlock = ^() {
-        [effect.processView removeFromSuperview];
-        effect.completionBlock = nil;
-    };
+    ASPushEffect *effect = [[ASPushEffect alloc] initWithKind:self.effectKing];
+    effect.sourceImage = sourceImage;
+    effect.destinationImage = destinationImage;
+    [self prepareProcessViewForEffect:effect];
+    return effect;
 }
 
-- (void)prepareProcessView {
+- (void)prepareProcessViewForEffect:(ASPushEffect *)effect {
     UINavigationController *navigationController = [self.sourceViewController navigationController];
     UIView *view = navigationController.visibleViewController.view;
     CGRect processViewFrame = [view.superview convertRect:view.frame toView:navigationController.view];
     UIView *processView = [[UIView alloc] initWithFrame:processViewFrame];
     [navigationController.view addSubview:processView];
 
-    self.effect.processView = processView;
+    effect.processView = processView;
 }
 
 - (UIImage *)screenshot:(UIView *)view {

@@ -11,6 +11,8 @@
 
 @interface ASRibbonPushEffect : ASPushEffect
 
-@property (nonatomic, assign) float pneumocushion;
+///// @brief Space from image surface to axis of rotation.
+///// @details This space should be positive. If it == 0 then images can partially overlap.
+//@property (nonatomic, assign) float pneumocushion;
 
 @end

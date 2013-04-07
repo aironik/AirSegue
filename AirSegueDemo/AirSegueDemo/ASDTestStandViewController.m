@@ -24,7 +24,7 @@
 }
 
 - (void)setupChanger {
-    self.imageChanger.effectClass = [ASRibbonChangeEffectRenderer class];
+    self.imageChanger.effectKind = ASEffectKindRibbon;
     self.imageChanger.sourceImage = [UIImage imageNamed:@"sourceImage.png"];
     self.imageChanger.destinationImage = [UIImage imageNamed:@"destinationImage.png"];
     UISlider *valueSlider = self.valueSlider;
@@ -43,12 +43,12 @@
 }
 
 - (IBAction)sliderValueDidChange:(UISlider *)sender {
-    self.imageChanger.timeIntervalFromStart = sender.value;
+    self.imageChanger.progress = sender.value;
 }
 
 - (IBAction)sliderPneumocushionDidChange:(UISlider *)sender {
-    ((ASRibbonChangeEffectRenderer *)self.imageChanger.sourceRenderer).pneumocushion = sender.value;
-    ((ASRibbonChangeEffectRenderer *)self.imageChanger.destinationRenderer).pneumocushion = sender.value;
+//    ((ASRibbonChangeEffectRenderer *)self.imageChanger.sourceRenderer).pneumocushion = sender.value;
+//    ((ASRibbonChangeEffectRenderer *)self.imageChanger.destinationRenderer).pneumocushion = sender.value;
 }
 
 

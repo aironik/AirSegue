@@ -28,7 +28,7 @@
 @dynamic pneumocushion;
 
 
-+ (instancetype)effectRendererWithRole:(ASChangeEffectRendererRole)role {
++ (instancetype)effectRendererWithRole:(ASRendererRole)role {
     Surfaces::Ribbon *ribbon = new Surfaces::Ribbon();
     return [[self alloc] initWithSurface:ribbon role:role];
 }

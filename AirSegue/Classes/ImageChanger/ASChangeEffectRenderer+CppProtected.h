@@ -16,6 +16,6 @@ class Surface;
 
 @property (nonatomic, assign, readonly) Surfaces::Surface *surface;
 
-- (id)initWithSurface:(Surfaces::Surface *)surface role:(ASChangeEffectRendererRole)role;
+- (id)initWithSurface:(Surfaces::Surface *)surface role:(ASRendererRole)role;
 
 @end

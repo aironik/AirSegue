@@ -6,11 +6,15 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
+#import "ASChangeEffectRenderer.h"
+
+
 #if !(__has_feature(objc_arc))
 #error ARC required. Add -fobjc-arc compiler flag for this file.
 #endif
 
 #import "ASImageChangerViewController.h"
+#import "ASRenderer.h"
 
 #import "ASChangeEffectRenderer.h"
 #import "ASRibbonChangeEffectRenderer.h"
@@ -30,6 +34,9 @@
 
 @property (nonatomic, assign) BOOL changing;
 
+@property (nonatomic, strong) NSObject<ASRenderer> *destinationRenderer;
+@property (nonatomic, strong) NSObject<ASRenderer> *sourceRenderer;
+
 @end
 
 
@@ -37,18 +44,32 @@
 
 @implementation ASImageChangerViewController
 
+- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {
+    if (self = [super initWithNibName:nibName bundle:nibBundle]) {
+        _effectKind = ASEffectKindRibbon;
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super initWithCoder:decoder]) {
+        _effectKind = ASEffectKindRibbon;
+    }
+    return self;
+}
+
+- (id)initWithEffectKind:(ASEffectKind)effectKind {
+    if (self = [super initWithNibName:nil bundle:nil]) {
+        _effectKind = effectKind;
+    }
+    return self;
+}
+
 - (void)dealloc {
     [self tearDownGL];
 
     if ([EAGLContext currentContext] == self.eaglContext) {
         [EAGLContext setCurrentContext:nil];
-    }
-}
-
-- (void)setEffectClass:(Class)effectClass {
-    if (_effectClass != effectClass) {
-        _effectClass = effectClass;
-        [self createRenderers];
     }
 }
 
@@ -128,7 +149,8 @@
     const float height2 = 1.0f / 2.0f;
     const float alpha = atanf(height2 / zOffset) * 2.0f;
 
-    const float aspect = self.useOriginalImagesAspect ? (self.view.bounds.size.width / self.view.bounds.size.height) : 1.0f;
+    BOOL useOriginalImagesAspect = YES;
+    const float aspect = useOriginalImagesAspect ? 1.0 : self.view.bounds.size.width / self.view.bounds.size.height;
 
     GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(alpha, aspect, zOffset / 2.0f, zOffset * 2.0f);
     effect.transform.projectionMatrix = projectionMatrix;
@@ -158,17 +180,35 @@
     [self sourceEffect];
     
     glEnable(GL_DEPTH_TEST);
-    
+
     [self createRenderers];
 
     self.paused = NO;
 }
 
 - (void)createRenderers {
-    if ([self isViewLoaded]) {
-        self.destinationRenderer = [self.effectClass effectRendererWithRole:ASChangeEffectRendererRoleDestination];
-        self.sourceRenderer = [self.effectClass effectRendererWithRole:ASChangeEffectRendererRoleSource];
+    NSAssert([self isViewLoaded], @"Impropper usage. Renderers should create while OpenGL has initialized");
+    self.sourceRenderer = [[self class] createRendererWithKind:self.effectKind role:ASRendererRoleSource];
+    self.destinationRenderer = [[self class] createRendererWithKind:self.effectKind role:ASRendererRoleDestination];
+    [self updateRenderersProgress];
+}
+
++ (NSObject<ASRenderer> *)createRendererWithKind:(ASEffectKind)kind role:(ASRendererRole)role {
+    NSObject<ASRenderer> *result = nil;
+    switch (kind) {
+        default:
+        case ASEffectKindUndefined:
+            NSAssert1(NO, @"Unknown effect kind %d", kind);
+            // no break. create default
+        case ASEffectKindRibbon:
+            result = [ASRibbonChangeEffectRenderer effectRendererWithRole:role];
+            break;
+        case ASEffectKindFade:
+            // TODO" wrirte fade effect.
+            result = [ASRibbonChangeEffectRenderer effectRendererWithRole:role];
+            break;
     }
+    return result;
 }
 
 - (EAGLContext *)eaglContext {
@@ -181,15 +221,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
-    if ([self isViewLoaded] && [[self view] window]) {
-        self.view = nil;
-
+    if ([self isViewLoaded] && ![[self view] window]) {
         [self tearDownGL];
 
         if ([EAGLContext currentContext] == self.eaglContext) {
             [EAGLContext setCurrentContext:nil];
         }
         self.eaglContext = nil;
+        self.view = nil;
     }
 }
 
@@ -211,7 +250,7 @@
 }
 
 - (void)update {
-    [self updateTimer];
+    [self updateProgress];
 
     [self updateEffect:self.sourceEffect];
     [self updateEffect:self.destinationEffect];
@@ -233,36 +272,42 @@
 - (void)start {
     NSAssert(self.duration > 0.0, @"%@ duration can't be 0.", NSStringFromClass([self class]));
     self.changing = YES;
-
-    self.timeIntervalFromStart = 0.0;
+    self.progress = self.directionBackward ? 1.0 : 0.0;
+    [self update];
 }
 
 - (void)stop {
-    self.changing = NO;
-
-    if (self.completionBlock) {
-        self.completionBlock();
+    if (self.changing) {
+        self.changing = NO;
+        if (self.completionBlock) {
+            self.completionBlock();
+        }
     }
 }
 
-- (void)updateTimer {
+- (void)updateProgress {
+
     if (self.changing) {
-        NSTimeInterval timeDelta = self.timeSinceLastUpdate;
-        if (timeDelta + self.timeIntervalFromStart > self.duration) {
-            self.timeIntervalFromStart = self.duration;
-            [self stop];
+        BOOL finished = NO;
+        if (self.duration > 0.0) {
+            NSTimeInterval progressDelta = self.timeSinceLastUpdate * (1.0 / self.duration);
+            self.progress = self.progress + (progressDelta * (self.directionBackward ? -1.0 : 1.0));
+            finished = self.directionBackward ? (self.progress <= 0.0) : (self.progress >= 1.0);
         } else {
-            self.timeIntervalFromStart += timeDelta;
+            finished = YES;
+        }
+
+        if (finished) {
+            // move progress into valid bounds.
+            self.progress = self.directionBackward ? 0.0 : 1.0;
+            [self stop];
         }
     }
 }
 
 - (void)updateRenderersProgress {
     const float rendererProgressLength = kASChangeEffectRendererProgressEnd - kASChangeEffectRendererProgressStart;
-    const float timeProgress = self.timeIntervalFromStart / self.duration;
-    const float rendererProgress = self.directionBackward
-                                 ? kASChangeEffectRendererProgressEnd - rendererProgressLength * timeProgress
-                                 : kASChangeEffectRendererProgressStart + rendererProgressLength * timeProgress;
+    const float rendererProgress = kASChangeEffectRendererProgressStart + rendererProgressLength * self.progress;
 
     self.sourceRenderer.progress = rendererProgress;
     self.destinationRenderer.progress = rendererProgress;

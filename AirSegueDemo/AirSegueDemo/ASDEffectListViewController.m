@@ -16,6 +16,7 @@
 
 #import "ASDRibbonSettingsViewController.h"
 #import "ASDTestStandViewController.h"
+//#import <AirSegue/../../Classes/NavigationControllers/PushEffect/ASRibbonPushEffect.h>
 
 
 enum {
@@ -44,9 +45,8 @@ enum {
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    ASRibbonPushEffect *defaultPushEffect = [[ASRibbonPushEffect alloc] init];
     ASNavigationController *navigationController = (ASNavigationController *)self.navigationController;
-    navigationController.pushEffect = defaultPushEffect;
+    navigationController.effectKind = ASEffectKindRibbon;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -170,10 +170,8 @@ enum {
 
 - (void)showRibbonEffect1 {
     ASDRibbonSettingsViewController *vc = [[ASDRibbonSettingsViewController alloc] initWithNibName:nil bundle:nil];
-    ASRibbonPushEffect *pushEffect = [[ASRibbonPushEffect alloc] init];
-    pushEffect.duration = [ASDRibbonSettingsViewController duration];
     [(ASNavigationController *)self.navigationController pushViewController:vc
-                                                            withChangeEffect:pushEffect];
+                                                             withEffectKind:ASEffectKindRibbon];
 }
 
 - (void)startTestStandAtRow:(NSInteger)row {

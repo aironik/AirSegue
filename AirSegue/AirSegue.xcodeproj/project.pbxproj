@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00B1C55216F110CB00634C73 /* ASChangeEffectRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00B1C53916F110CB00634C73 /* ASChangeEffectRenderer.mm */; };
 		00B1C55316F110CB00634C73 /* ASImageChangerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1C53A16F110CB00634C73 /* ASImageChangerViewController.m */; };
-		00B1C55416F110CB00634C73 /* ASRibbonChangeEffectRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00B1C53C16F110CB00634C73 /* ASRibbonChangeEffectRenderer.mm */; };
 		00B1C55516F110CB00634C73 /* Ribbon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00B1C53F16F110CB00634C73 /* Ribbon.mm */; };
 		00B1C55616F110CB00634C73 /* Surface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00B1C54116F110CB00634C73 /* Surface.mm */; };
 		00B1C55716F110CB00634C73 /* ASNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1C54516F110CB00634C73 /* ASNavigationController.m */; };
@@ -17,8 +15,13 @@
 		00B1C55916F110CB00634C73 /* ASPushEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1C54A16F110CB00634C73 /* ASPushEffect.m */; };
 		00B1C55A16F110CB00634C73 /* ASRibbonPushEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1C54C16F110CB00634C73 /* ASRibbonPushEffect.m */; };
 		00D0062B16F1087A008919DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D0062A16F1087A008919DD /* Foundation.framework */; };
+		C4E3E36BD93E67C5F6B08CD3 /* ASImageChangerViewController+Protected.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4E3EC061E2D84FB11C74FC4 /* ASImageChangerViewController+Protected.h */; };
 		C4E3E4DE978D4C9BD5E8BF99 /* ASFeaturesDefinitions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4E3E26C968A0D511AE0CA18 /* ASFeaturesDefinitions.h */; };
+		C4E3E61711CE31B064141503 /* ASEffectKind.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4E3EA36901E724250AE2D22 /* ASEffectKind.h */; };
 		C4E3E6A3D189F108AC1E877F /* ASPushSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E67650293649B0D9A2D4 /* ASPushSegue.m */; };
+		C4E3E6C4B856C99A5C869FD1 /* ASRenderer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4E3E525B9F492C1013FD5B5 /* ASRenderer.h */; };
+		C4E3E7CB8E8A19A024A43CCD /* ASChangeEffectRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4E3ECBCF05C0322B21D031F /* ASChangeEffectRenderer.mm */; };
+		C4E3E89B0B86D24B9F59842C /* ASRibbonChangeEffectRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E25324D42377131F5F8C /* ASRibbonChangeEffectRenderer.mm */; };
 		C4E3ED4B21E05B04654FC3E4 /* ASPushSegue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4E3E7A621368E037D38A511 /* ASPushSegue.h */; };
 /* End PBXBuildFile section */
 
@@ -31,18 +34,16 @@
 			files = (
 				C4E3ED4B21E05B04654FC3E4 /* ASPushSegue.h in CopyFiles */,
 				C4E3E4DE978D4C9BD5E8BF99 /* ASFeaturesDefinitions.h in CopyFiles */,
+				C4E3E61711CE31B064141503 /* ASEffectKind.h in CopyFiles */,
+				C4E3E36BD93E67C5F6B08CD3 /* ASImageChangerViewController+Protected.h in CopyFiles */,
+				C4E3E6C4B856C99A5C869FD1 /* ASRenderer.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00B1C53716F110CB00634C73 /* ASChangeEffectRenderer+CppProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASChangeEffectRenderer+CppProtected.h"; sourceTree = "<group>"; };
-		00B1C53816F110CB00634C73 /* ASChangeEffectRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChangeEffectRenderer.h; sourceTree = "<group>"; };
-		00B1C53916F110CB00634C73 /* ASChangeEffectRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASChangeEffectRenderer.mm; sourceTree = "<group>"; };
 		00B1C53A16F110CB00634C73 /* ASImageChangerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASImageChangerViewController.m; sourceTree = "<group>"; };
-		00B1C53B16F110CB00634C73 /* ASRibbonChangeEffectRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRibbonChangeEffectRenderer.h; sourceTree = "<group>"; };
-		00B1C53C16F110CB00634C73 /* ASRibbonChangeEffectRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASRibbonChangeEffectRenderer.mm; sourceTree = "<group>"; };
 		00B1C53E16F110CB00634C73 /* Ribbon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ribbon.h; sourceTree = "<group>"; };
 		00B1C53F16F110CB00634C73 /* Ribbon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Ribbon.mm; sourceTree = "<group>"; };
 		00B1C54016F110CB00634C73 /* Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Surface.h; sourceTree = "<group>"; };
@@ -62,9 +63,17 @@
 		00D0062716F1087A008919DD /* libAirSegue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAirSegue.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D0062A16F1087A008919DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00D0063816F10B29008919DD /* AirSegue-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AirSegue-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		C4E3E00811C469EF2E864C90 /* ASRibbonChangeEffectRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRibbonChangeEffectRenderer.h; sourceTree = "<group>"; };
+		C4E3E06FF7422F77A63049C5 /* ASChangeEffectRenderer+CppProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASChangeEffectRenderer+CppProtected.h"; sourceTree = "<group>"; };
+		C4E3E25324D42377131F5F8C /* ASRibbonChangeEffectRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASRibbonChangeEffectRenderer.mm; sourceTree = "<group>"; };
 		C4E3E26C968A0D511AE0CA18 /* ASFeaturesDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFeaturesDefinitions.h; sourceTree = "<group>"; };
+		C4E3E525B9F492C1013FD5B5 /* ASRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRenderer.h; sourceTree = "<group>"; };
 		C4E3E67650293649B0D9A2D4 /* ASPushSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASPushSegue.m; path = Classes/ASPushSegue.m; sourceTree = "<group>"; };
 		C4E3E7A621368E037D38A511 /* ASPushSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPushSegue.h; sourceTree = "<group>"; };
+		C4E3E9256260C36207D433CF /* ASChangeEffectRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChangeEffectRenderer.h; sourceTree = "<group>"; };
+		C4E3EA36901E724250AE2D22 /* ASEffectKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASEffectKind.h; sourceTree = "<group>"; };
+		C4E3EC061E2D84FB11C74FC4 /* ASImageChangerViewController+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASImageChangerViewController+Protected.h"; sourceTree = "<group>"; };
+		C4E3ECBCF05C0322B21D031F /* ASChangeEffectRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASChangeEffectRenderer.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,13 +101,11 @@
 		00B1C53616F110CB00634C73 /* ImageChanger */ = {
 			isa = PBXGroup;
 			children = (
-				00B1C53716F110CB00634C73 /* ASChangeEffectRenderer+CppProtected.h */,
-				00B1C53816F110CB00634C73 /* ASChangeEffectRenderer.h */,
-				00B1C53916F110CB00634C73 /* ASChangeEffectRenderer.mm */,
 				00B1C53A16F110CB00634C73 /* ASImageChangerViewController.m */,
-				00B1C53B16F110CB00634C73 /* ASRibbonChangeEffectRenderer.h */,
-				00B1C53C16F110CB00634C73 /* ASRibbonChangeEffectRenderer.mm */,
 				00B1C53D16F110CB00634C73 /* Effects */,
+				C4E3EC061E2D84FB11C74FC4 /* ASImageChangerViewController+Protected.h */,
+				C4E3ED2DC21ECEE01EEFF4E2 /* Old */,
+				C4E3E525B9F492C1013FD5B5 /* ASRenderer.h */,
 			);
 			path = ImageChanger;
 			sourceTree = "<group>";
@@ -150,10 +157,11 @@
 			isa = PBXGroup;
 			children = (
 				00B1C54F16F110CB00634C73 /* AirSegue.h */,
+				C4E3EA36901E724250AE2D22 /* ASEffectKind.h */,
+				C4E3E26C968A0D511AE0CA18 /* ASFeaturesDefinitions.h */,
 				00B1C55016F110CB00634C73 /* ASImageChangerViewController.h */,
 				00B1C55116F110CB00634C73 /* ASNavigationController.h */,
 				C4E3E7A621368E037D38A511 /* ASPushSegue.h */,
-				C4E3E26C968A0D511AE0CA18 /* ASFeaturesDefinitions.h */,
 			);
 			path = AirSegue;
 			sourceTree = "<group>";
@@ -209,6 +217,18 @@
 			name = Segue;
 			sourceTree = SOURCE_ROOT;
 		};
+		C4E3ED2DC21ECEE01EEFF4E2 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3E06FF7422F77A63049C5 /* ASChangeEffectRenderer+CppProtected.h */,
+				C4E3E9256260C36207D433CF /* ASChangeEffectRenderer.h */,
+				C4E3ECBCF05C0322B21D031F /* ASChangeEffectRenderer.mm */,
+				C4E3E00811C469EF2E864C90 /* ASRibbonChangeEffectRenderer.h */,
+				C4E3E25324D42377131F5F8C /* ASRibbonChangeEffectRenderer.mm */,
+			);
+			name = Old;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,9 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00B1C55216F110CB00634C73 /* ASChangeEffectRenderer.mm in Sources */,
 				00B1C55316F110CB00634C73 /* ASImageChangerViewController.m in Sources */,
-				00B1C55416F110CB00634C73 /* ASRibbonChangeEffectRenderer.mm in Sources */,
 				00B1C55516F110CB00634C73 /* Ribbon.mm in Sources */,
 				00B1C55616F110CB00634C73 /* Surface.mm in Sources */,
 				00B1C55716F110CB00634C73 /* ASNavigationController.m in Sources */,
@@ -270,6 +288,8 @@
 				00B1C55916F110CB00634C73 /* ASPushEffect.m in Sources */,
 				00B1C55A16F110CB00634C73 /* ASRibbonPushEffect.m in Sources */,
 				C4E3E6A3D189F108AC1E877F /* ASPushSegue.m in Sources */,
+				C4E3E7CB8E8A19A024A43CCD /* ASChangeEffectRenderer.mm in Sources */,
+				C4E3E89B0B86D24B9F59842C /* ASRibbonChangeEffectRenderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +326,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(inherited)\"",
+					"\"$(SRCROOT)\"/**",
+					"\"$(SRCROOT)/Headers\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -336,6 +361,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(inherited)\"",
+					"\"$(SRCROOT)\"/**",
+					"\"$(SRCROOT)/Headers\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -349,6 +379,10 @@
 				DSTROOT = /tmp/AirSegue.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirSegue-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(inherited)\"",
+					"\"$(SRCROOT)/Headers\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -360,6 +394,10 @@
 				DSTROOT = /tmp/AirSegue.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirSegue-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(inherited)\"",
+					"\"$(SRCROOT)/Headers\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

@@ -13,6 +13,6 @@
 
 @property (nonatomic, assign) float pneumocushion;
 
-+ (instancetype)effectRendererWithRole:(ASChangeEffectRendererRole)role;
++ (instancetype)effectRendererWithRole:(ASRendererRole)role;
 
 @end

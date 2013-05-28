@@ -1,11 +1,10 @@
 //
-//  Vertex3D.cpp
+//  Vertex3D.h
 //  AirSegue
 //
 //  Created by Oleg Lobachev  (aironik@gmail.com) on 07.02.2013.
 //  Copyright © 2013 aironik. All rights reserved.
-//#import <GLKit/GLKit.h>
-
+//
 
 #ifndef __Vertex_H_
 #define __Vertex_H_

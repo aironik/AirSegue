@@ -24,7 +24,7 @@
 /// @brief This image use as background while images changes.
 @property (nonatomic, strong) UIImage *backgroundImage;
 
-/// @brief Images change duration.
+/// @brief Images change duration in seconds.
 @property (nonatomic, assign) NSTimeInterval duration;
 
 /// @brief Progress direction. If NO proceed changes from begin to end. If YES process changes from end to begin
@@ -36,11 +36,12 @@
 /// @brief The code block to be executed when the animation ends.
 @property (nonatomic, copy) void(^completionBlock)();
 
-/// @brief Anomation effect kind. This value setup on init onject and can't be changed.
+/// @brief Animation effect kind.
+/// @details This value setup in init object and can't be changed.
 /// @see ASEffectKind.
 @property (nonatomic, assign, readonly) ASEffectKind effectKind;
 
-/// @brief Initialize new image changer view controller for specified animation effect.
+/// @brief Initialize new image changer view controller instance for specified animation effect.
 - (id)initWithEffectKind:(ASEffectKind)effectKind;
 
 /// @brief Start change effect animation sequence.

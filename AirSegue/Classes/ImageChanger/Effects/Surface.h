@@ -1,11 +1,10 @@
 //
-//  Surface.cpp
+//  Surface.h
 //  AirSegue
 //
 //  Created by Oleg Lobachev  (aironik@gmail.com) on 07.02.2013.
 //  Copyright © 2013 aironik. All rights reserved.
 //
-
 
 #ifndef __Surface_H_
 #define __Surface_H_
@@ -20,9 +19,13 @@
 namespace Surfaces {
 
 /// @brief Base surface class.
+/// @details This interface uses as lowe-level draw effects.
+///     Each screen represents as image and after draw with deformations.
 class Surface {
-public:
+protected:
     typedef std::vector<Vertex3D> VertexList;
+
+public:
     typedef enum {
         ROLE_SOURCE,            ///< This surface use as source image.
         ROLE_TARGET             ///< This surface use as target image.

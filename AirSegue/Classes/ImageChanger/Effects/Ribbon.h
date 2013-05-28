@@ -1,11 +1,10 @@
 //
-//  Ribbon.cpp
+//  Ribbon.h
 //  AirSegue
 //
 //  Created by Oleg Lobachev  (aironik@gmail.com) on 08.02.2013.
 //  Copyright © 2013 aironik. All rights reserved.
 //
-
 
 #ifndef __Ribbon_H_
 #define __Ribbon_H_

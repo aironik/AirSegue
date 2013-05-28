@@ -1,5 +1,5 @@
 //
-//  Ribbon.cpp
+//  Ribbon.mm
 //  AirSegue
 //
 //  Created by Oleg Lobachev  (aironik@gmail.com) on 08.02.2013.

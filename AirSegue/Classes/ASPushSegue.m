@@ -3,7 +3,7 @@
 //  AirSegue
 //
 //  Created by Oleg Lobachev  (aironik@gmail.com) on 17.03.2013.
-//  Copyright 2013 aironik. All rights reserved.
+//  Copyright © 2013 aironik. All rights reserved.
 //
 
 #if !(__has_feature(objc_arc))
@@ -16,6 +16,7 @@
 
 #import "ASEffectKind.h"
 #import "ASPushEffect.h"
+#import "ASSettings.h"
 
 
 @interface ASPushSegue ()
@@ -73,12 +74,12 @@
 - (void)startWithChangeBlock:(void(^)())changeBlock {
 
     UINavigationController *navigationController = [self.sourceViewController navigationController];
-    UIImage *sourceImage = [self screenshot:navigationController.visibleViewController.view];
+    UIImage *sourceImage = [self screenshot];
     changeBlock();
     [navigationController.view layoutIfNeeded];
     [navigationController.visibleViewController.view setNeedsLayout];
     [navigationController.visibleViewController.view layoutIfNeeded];
-    UIImage *destinationImage = [self screenshot:navigationController.visibleViewController.view];
+    UIImage *destinationImage = [self screenshot];
 
     [self startAnimationEffectWithSourceImage:sourceImage destinationImage:destinationImage];
 }
@@ -117,6 +118,17 @@
     effect.processView = processView;
 }
 
+- (UIImage *)screenshot {
+    UIImage *result = nil;
+    UINavigationController *navigationController = [self.sourceViewController navigationController];
+    if ([[ASSettings sharedSettings] pushWithNavigationBar]) {
+        result = [self screenshot:navigationController.view];
+    } else {
+        result = [self screenshot:navigationController.visibleViewController.view];
+    }
+    return result;
+}
+
 - (UIImage *)screenshot:(UIView *)view {
     // https://developer.apple.com/library/ios/#qa/qa2010/qa1703.html
 
@@ -151,4 +163,5 @@
 
     return image;
 }
+
 @end

@@ -24,7 +24,6 @@
 }
 
 - (void)setupChanger {
-    self.imageChanger.effectKind = ASEffectKindRibbon;
     self.imageChanger.sourceImage = [UIImage imageNamed:@"sourceImage.png"];
     self.imageChanger.destinationImage = [UIImage imageNamed:@"destinationImage.png"];
     UISlider *valueSlider = self.valueSlider;
